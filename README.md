@@ -14,11 +14,11 @@
 
 #### •Testnet Nedir?
 <p>Test için kullanılacak alternatif bir blok zinciridir. Testnet paraları gerçek paralardan farklıdır ve testnet paralarının herhangi bir parasal değeri yoktur. Bu, uygulama geliştiricilerinin veya testçilerinin değerli madeni paralar kullanmak zorunda kalmadan deney yapmalarını sağlar. Testnetlerin diğer gerçek Mainnet'ler ile bir bağlantısı yoktur.</p>
-•	Network Name: Avalanche Fuji Testnet</br>
-•	New RPC URL: https://api.avax-test.network/ext/bc/C/rpc</br>
-•	ChainID: 43113</br>
-•	Symbol: AVAX</br>
-•	Explorer: https://testnet.snowtrace.io/</br>
+•	<b>Network Name</b>: Avalanche Fuji Testnet</br>
+•	<b>New RPC URL</b>: https://api.avax-test.network/ext/bc/C/rpc</br>
+•	<b>	ChainID</b>: 43113</br>
+•	<b>	Symbol</b>: AVAX</br>
+•	<b>	Explorer</b>: https://testnet.snowtrace.io/</br>
 <p align="center"><img src="https://user-images.githubusercontent.com/82549640/182459511-d807fa05-0f5e-45bc-8494-bb6be4f1e29b.png"></p>
 Fuji ağında test AVAX tokenlerını almak için günde bir defaya mahsus aşağıdaki linkten test tokenlarınızı alabilirsiniz. (https://faucet.avax.network/ )
 
