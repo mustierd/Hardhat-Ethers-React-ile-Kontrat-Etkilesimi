@@ -65,5 +65,16 @@ Projemizin senaryosunda  2 adet kontratımız var. Bu kontratları tek tek açı
 •	<b>Constructor()</b> fonksiyonunun içinde tokenımızın adını ve kısalmasını belirtiyoruz.</br>
 •	<b>_mint()</b> fonksiyonu ile total arzını belirtiyoruz ve _mint() fonksiyonunu çalıştıran yani kontratı deploy eden cüzdan adresine bu tokenlar gönderiliyor.</br>
 Not: Burada <b>decimals()</b> fonksiyonu “18”  sonucunu ERC20 kontratından döndürüyor. Yani total arzı “1773000…1018 sıfır olarak belirliyoruz.</br>
-•	Openzeppelin kütüphanesinden erc20 kontratını import ediyoruz.</br>
+•	Openzeppelin kütüphanesinden erc20 kontratını import ediyoruz.</br></br>
+
+// SPDX-License-Identifier: UNLICENSED
+pragma solidity ^0.8.2;
+
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+
+contract BeeToken is ERC20 {
+    constructor() ERC20("BEE Token", "BEE") {
+        _mint(msg.sender, 1773000 * 10**decimals());
+    }
+}
 
