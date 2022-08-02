@@ -60,13 +60,13 @@ Fuji ağında test AVAX tokenlerını almak için günde bir defaya mahsus aşa�
 <p>Şimdi akıllı kontratlarımızı contract/ dizinin altına yazıyoruz.</p>
 <p><img src="https://user-images.githubusercontent.com/82549640/182482959-a3da62e5-a91a-4100-819a-988ce2b28ea7.png"></p></br>
 
-Projemizin senaryosunda  2 adet kontratımız var. Bu kontratları tek tek açıklamayacağım. Fakat ne iş yaptığını kısaca bilmemiz gerekir ise bunlar;
+Projemizin senaryosunda  2 adet kontratımız var. Bu kontratları tek tek açıklamayacağım. Fakat ne iş yaptığını kısaca bilmemiz gerekir ise bunlar;</br>
 <b>1)Token.sol</b>: Bu kontratımız ERC20 protokolünde miras alınarak yazılmış token kontratıdır. Yani bu kontratımızda ERC20 kontratınının sahip olduğu “private” hariç tüm özelliklere doğrudan çağırıp kullanabilir.</br>
 •	<b>Constructor()</b> fonksiyonunun içinde tokenımızın adını ve kısalmasını belirtiyoruz.</br>
 •	<b>_mint()</b> fonksiyonu ile total arzını belirtiyoruz ve _mint() fonksiyonunu çalıştıran yani kontratı deploy eden cüzdan adresine bu tokenlar gönderiliyor.</br>
 Not: Burada <b>decimals()</b> fonksiyonu “18”  sonucunu ERC20 kontratından döndürüyor. Yani total arzı “1773000…1018 sıfır olarak belirliyoruz.</br>
 •	Openzeppelin kütüphanesinden erc20 kontratını import ediyoruz.</br></br>
-
+```
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.2;
 
@@ -77,4 +77,56 @@ contract BeeToken is ERC20 {
         _mint(msg.sender, 1773000 * 10**decimals());
     }
 }
+```
+2)<b>Lock.sol</b>: Bu kontratımızın senaryosu ise kullanıcılar bu kontrata token gönderip bir nevi kilitlemiş oluyor. Sonra bu tokenları belirli bir zaman geçtikten sonra çekebilme iznine sahip olan bir mantığına dayanmaktadır.</br></br>
+•<b>LockToken()</b> fonksiyonu ile kullanıcının kilitleyeceği token miktarını ve kilitli kalacağı zaman(saniye cinsinden ) bilgilerini giriyor ve aslında tokenları bu kontratta kilitlemiş oluyor. </br>
+ (Not: <b>approve()</b> fonksiyonu ile bu Lock kontratına izin verilmediği sürece bu kontrat token transferini yapamaz. İleride bu durumu açıklayacağım.)</br>
+•	<b>withdrawToken()</b> fonksiyonu ile bu kullanıcı kilitlediği tokenlarını, kilitlediği süre sona erdiyse geri çekebilmektedir.</br>
 
+```
+	// SPDX-License-Identifier: UNLICENSED
+	pragma solidity ^0.8.2;
+	
+	import "./Token.sol";
+	
+	contract Lock {
+	    BeeToken Token;
+	
+	    uint256 public lockerCount;
+	    uint256 public totalLocked;
+	    mapping(address => uint256) public lockers;
+	    mapping(address => uint256) public deadLine;
+	
+	    constructor(address tokenAddress) {
+	        Token = BeeToken(tokenAddress);
+	    }
+	
+	    function LockToken(uint256 amount, uint256 time) external {
+	        require(amount > 0, "Token amount must be bigger than 0");
+	        // require(Token.balanceOf(msg.sender) >= amount, "insufficent balance.");
+	        // require(
+	        //     Token.allowance(msg.sender, address(this)) >= amount,
+	        //     "insufficent allowance."
+	        // );
+	        if (!(lockers[msg.sender] > 0)) lockerCount++;
+	        totalLocked += amount;
+	        lockers[msg.sender] += amount;
+	        deadLine[msg.sender] = block.timestamp + time;
+	
+	        bool ok = Token.transferFrom(msg.sender, address(this), amount);
+	        require(ok, "Transfer failed.!!!");
+	    }
+	
+	    function withdrawToken() external {
+	        require(lockers[msg.sender] > 0, "not enough token");
+	        require(block.timestamp > deadLine[msg.sender], "deadline is not over");
+	        uint256 amount = lockers[msg.sender];
+	        delete (lockers[msg.sender]);
+	        totalLocked -= amount;
+	        lockerCount--;
+	
+	        require(Token.transfer(msg.sender, amount), "Transfer failed.!!!");
+	    }
+	}
+
+```
