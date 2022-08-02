@@ -62,7 +62,7 @@ Fuji ağında test AVAX tokenlerını almak için günde bir defaya mahsus aşa�
 
 <p>Projemizin senaryosunda  2 adet kontratımız var. Bu kontratları tek tek açıklamayacağım. Fakat ne iş yaptığını kısaca bilmemiz gerekir ise bunlar;</p>
 
-***1)Token.sol***: Bu kontratımız ERC20 protokolünde miras alınarak yazılmış token kontratıdır. Yani bu kontratımızda ERC20 kontratınının sahip olduğu “private” hariç tüm özelliklere doğrudan çağırıp kullanabilir.</br></br>
+<b>1)Token.sol</b> Bu kontratımız ERC20 protokolünde miras alınarak yazılmış token kontratıdır. Yani bu kontratımızda ERC20 kontratınının sahip olduğu “private” hariç tüm özelliklere doğrudan çağırıp kullanabilir.</br></br>
 •	<b>Constructor()</b> fonksiyonunun içinde tokenımızın adını ve kısalmasını belirtiyoruz.</br>
 •	<b>_mint()</b> fonksiyonu ile total arzını belirtiyoruz ve _mint() fonksiyonunu çalıştıran yani kontratı deploy eden cüzdan adresine bu tokenlar gönderiliyor.</br>
 Not: Burada <b>decimals()</b> fonksiyonu “18”  sonucunu ERC20 kontratından döndürüyor. Yani total arzı “1773000…10^18 sıfır olarak belirliyoruz.</br>
@@ -80,7 +80,7 @@ contract BeeToken is ERC20 {
 }
 ```
 </br>
-***2)Lock.sol***: Bu kontratımızın senaryosu ise kullanıcılar bu kontrata token gönderip bir nevi kilitlemiş oluyor. Sonra bu tokenları belirli bir zaman geçtikten sonra çekebilme iznine sahip olan bir mantığına dayanmaktadır.</br></br>
+<b>2)Lock.sol</b> Bu kontratımızın senaryosu ise kullanıcılar bu kontrata token gönderip bir nevi kilitlemiş oluyor. Sonra bu tokenları belirli bir zaman geçtikten sonra çekebilme iznine sahip olan bir mantığına dayanmaktadır.</br></br>
 •<b>LockToken()</b> fonksiyonu ile kullanıcının kilitleyeceği token miktarını ve kilitli kalacağı zaman(saniye cinsinden ) bilgilerini giriyor ve aslında tokenları bu kontratta kilitlemiş oluyor. </br>
  (Not: <b>approve()</b> fonksiyonu ile bu Lock kontratına izin verilmediği sürece bu kontrat token transferini yapamaz. İleride bu durumu açıklayacağım.)</br>
 •	<b>withdrawToken()</b> fonksiyonu ile bu kullanıcı kilitlediği tokenlarını, kilitlediği süre sona erdiyse geri çekebilmektedir.</br></br></br>
@@ -132,4 +132,4 @@ contract BeeToken is ERC20 {
 	}
 ```
 </br>
-• <code>npx hardhat compile</code> ile akıllı kontratlarımızı EVM’ nin anlayabileceği dile dönüştürmek için derliyoruz. Bu komut ile projemizde ***artifacts*** dosyası oluşmaktadır. Bu dosyanın altında import ettiğimiz kontratlar ve kendi kontratlarımızın “***ABI*** ve ***Bytes***” kodları yer almaktadır.
+• <code>npx hardhat compile</code> ile akıllı kontratlarımızı EVM’ nin anlayabileceği dile dönüştürmek için derliyoruz. Bu komut ile projemizde ***artifacts*** dosyası oluşmaktadır. Bu dosyanın altında import ettiğimiz kontratlar ve kendi kontratlarımızın “<b>ABI</b> ve <b>Bytes</b>” kodları yer almaktadır.
