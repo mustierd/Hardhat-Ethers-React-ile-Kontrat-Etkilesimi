@@ -57,6 +57,6 @@ Fuji ağında test AVAX tokenlerını almak için günde bir defaya mahsus aşa�
 <p>“ethereum-waffle, chai, hardhat-waffle” bunlar hardhat de test kodlarını yazmamız için faydalanacağımız kütüphanelerdir. Yazımızın ilerleyen bölümlerinde test kodlarınıda yazacağız.</p>
 • <code> npm install @openzeppelin/contracts </code>ile ERC20 kontratını openzeplin kütüphanesinden import edeceğiz.</br>
 
-<p>Şimdi akıllı kontratlarımızı contract/ dizinin altına yazıyoruz.</p></br>
+<p>Şimdi akıllı kontratlarımızı contract/ dizinin altına yazıyoruz.</p>
 <p><img src="https://user-images.githubusercontent.com/82549640/182482959-a3da62e5-a91a-4100-819a-988ce2b28ea7.png"></p>
 
