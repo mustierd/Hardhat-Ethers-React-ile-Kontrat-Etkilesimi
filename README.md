@@ -60,6 +60,8 @@ Fuji ağında test AVAX tokenlerını almak için günde bir defaya mahsus aşa�
 <p>Şimdi akıllı kontratlarımızı contract/ dizinin altına yazıyoruz.</p>
 <p><img src="https://user-images.githubusercontent.com/82549640/182482959-a3da62e5-a91a-4100-819a-988ce2b28ea7.png"></p></br>
 
+#### •Contracts
+
 <p>Projemizin senaryosunda  2 adet kontratımız var. Bu kontratları tek tek açıklamayacağım. Fakat ne iş yaptığını kısaca bilmemiz gerekir ise bunlar;</p>
 
 <b>1)Token.sol</b> Bu kontratımız ERC20 protokolünde miras alınarak yazılmış token kontratıdır. Yani bu kontratımızda ERC20 kontratınının sahip olduğu “private” hariç tüm özelliklere doğrudan çağırıp kullanabilir.</br></br>
@@ -134,3 +136,5 @@ contract BeeToken is ERC20 {
 </br>
 • <code>npx hardhat compile</code> ile akıllı kontratlarımızı EVM’ nin anlayabileceği dile dönüştürmek için derliyoruz. Bu komut ile projemizde <b>artifacts</b> dosyası oluşmaktadır. Bu dosyanın altında import ettiğimiz kontratlar ve kendi kontratlarımızın “<b>ABI</b> ve <b>Bytes</b>” kodları yer almaktadır.</br>
 <p><b>ABI Code</b>: Fonksiyonların nasıl çağrılacağı, parametrelerin nasıl geçirileceği vb gibi fonksiyonel olaylara ve değişkenlere EVM ‘nin anlayacağı türden bir iletişim kalıbı oluşturuyor diyebiliriz. </p>
+<p><img src="https://user-images.githubusercontent.com/82549640/182487932-67b8bcf9-4bcb-4516-acc6-c8df2c45d7ba.png"></p>
+
