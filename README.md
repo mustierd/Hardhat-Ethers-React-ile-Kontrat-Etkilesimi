@@ -24,6 +24,8 @@ Fuji ağında test AVAX tokenlerını almak için günde bir defaya mahsus aşa�
 
 <p align="center"><img src="https://user-images.githubusercontent.com/82549640/182462439-d6bdecf4-0d50-4d25-8b7a-d6bfe73b7058.png"></p>
 
+### <p align="center">1.Hardhat</p>
+#### •Hardhat Nedir?
 
 
        
