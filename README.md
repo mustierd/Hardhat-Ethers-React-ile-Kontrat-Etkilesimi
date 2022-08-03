@@ -141,7 +141,7 @@ contract BeeToken is ERC20 {
 <p>Şimdi kontratlarımız deploy etmeye hazır. Fakat bunun için deploy edeceğimiz ağ ve deploy scriptini yazmamız gerekmektedir.</p>
 • <b>PRİVATE_KEY</b>: Kontratı deploy edecek cüzdanın private key’i ni giriniz. Bu key'i tarayıcınızda Fuji estnetine o an bağlı olan cüzdan adresinin keyidir.Özel anahtarı dışa aktar diyerek ulaşabilirsiniz.</br>
 •<b> solidity</b>: Solidity dilinin versiyonunu belirliyoruz.</br>
-•<b> network</b>: Birden fazla network rpc bilgilerini ekledim. Biz bu uygulamamızdan avalanche’nin fuji test ağında işlem yapacağız. Fuji testnetin rpc urlsini ve bu deploy işlemi onaylayacak cüzdan adresini belirlememiz gerekmektedir.</br>
+•<b> network</b>: Birden fazla network rpc bilgilerini ekledim. Biz bu uygulamamızdan avalanche’nin fuji test ağında işlem yapacağız. Fuji testnetin rpc urlsini ve bu deploy işlemi onaylayacak cüzdan adresini belirlememiz gerekmektedir.</br></br>
 <p><img src="https://user-images.githubusercontent.com/82549640/182501192-eaa9b37e-ca70-48a1-ad33-a08c9491c3b5.png"></p>
 
 
