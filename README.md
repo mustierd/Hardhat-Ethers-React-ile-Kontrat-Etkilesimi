@@ -139,9 +139,45 @@ contract BeeToken is ERC20 {
 <p><img src="https://user-images.githubusercontent.com/82549640/182487932-67b8bcf9-4bcb-4516-acc6-c8df2c45d7ba.png"></p>
 
 <p>Şimdi kontratlarımız deploy etmeye hazır. Fakat bunun için deploy edeceğimiz ağ ve deploy scriptini yazmamız gerekmektedir.</p>
+<b>hardhat.config.js</b><br>
+
+```
+//require("@nomiclabs/hardhat-ethers");
+require("@nomiclabs/hardhat-waffle");
+
+const PRIVATE_KEY = "cüzdanınızın private key’i";
+
+module.exports = {
+    solidity: "0.8.2",
+    networks: {
+      hardhat:{},
+      alchemy:{
+          url:"https://eth-rinkeby.alchemyapi.io/v2/HqFAMf3XQpOZE9JIKv1piCcZBj8IR-Xa",
+          accounts: [`${PRIVATE_KEY}`]
+        },
+      mainnet: {
+        url: `https://api.avax.network/ext/bc/C/rpc`,
+          accounts: [`${PRIVATE_KEY}`]
+      },
+      fuji: {
+        url: `https://api.avax-test.network/ext/bc/C/rpc`,
+          accounts: [`${PRIVATE_KEY}`]
+      }
+
+    }
+};
+
+```
+
+</br>
 • <b>PRİVATE_KEY</b>: Kontratı deploy edecek cüzdanın private key’i ni giriniz. Bu key'i tarayıcınızda Fuji estnetine o an bağlı olan cüzdan adresinin keyidir.Özel anahtarı dışa aktar diyerek ulaşabilirsiniz.</br>
 •<b> solidity</b>: Solidity dilinin versiyonunu belirliyoruz.</br>
 •<b> network</b>: Birden fazla network rpc bilgilerini ekledim. Biz bu uygulamamızdan avalanche’nin fuji test ağında işlem yapacağız. Fuji testnetin rpc urlsini ve bu deploy işlemi onaylayacak cüzdan adresini belirlememiz gerekmektedir.</br></br>
-<p><img src="https://user-images.githubusercontent.com/82549640/182501192-eaa9b37e-ca70-48a1-ad33-a08c9491c3b5.png"></p>
+<p><b>Not:</b> Burada “hardhat-waffle” ‘ın içerisinde ethers kütüphanesi de olduğu için “hardhat-ethers” kütüphanesini kaldırırsak hata vermeyecektir.</p>
+<p><img src="https://user-images.githubusercontent.com/82549640/182501192-eaa9b37e-ca70-48a1-ad33-a08c9491c3b5.png"></p></br>
+
+<p>Daha sonra ethers.js kütüphanesinden yararlanarak deploy scriptlerini yazıyoruz. Bu scriptleri çalıştırdığımızda kontratlarımız seçtiğimiz ağa deploy olacaktır. Burada ayrı ayrı 2 script yazmalıyız çünkü 2 farklı kontratımız mevcut.</p>
+<p><b>Not</b>: Blockchain ile iletişime geçilen durumlarda promise değeri döndürüleceği için async-await olarak tanımlama yapılmalıdır.</p>
+
 
 
