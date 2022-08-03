@@ -177,7 +177,9 @@ module.exports = {
 <p><img src="https://user-images.githubusercontent.com/82549640/182501192-eaa9b37e-ca70-48a1-ad33-a08c9491c3b5.png"></p></br>
 
 <p>Daha sonra ethers.js kütüphanesinden yararlanarak deploy scriptlerini yazıyoruz. Bu scriptleri çalıştırdığımızda kontratlarımız seçtiğimiz ağa deploy olacaktır. Burada ayrı ayrı 2 script yazmalıyız çünkü 2 farklı kontratımız mevcut.</p>
-<p><b>Not</b>: Blockchain ile iletişime geçilen durumlarda promise değeri döndürüleceği için async-await olarak tanımlama yapılmalıdır.</p>
+<p><b>Not</b>: Blockchain ile iletişime geçilen durumlarda promise değeri döndürüleceği için async-await olarak tanımlama yapılmalıdır.</p></br>
+
+<p><b>Token.sol Kontrat için -></b> deploy1.js</p>
 
 
 
