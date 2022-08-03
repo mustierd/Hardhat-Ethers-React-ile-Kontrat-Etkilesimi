@@ -138,3 +138,7 @@ contract BeeToken is ERC20 {
 <p><b>ABI Code</b>: Fonksiyonların nasıl çağrılacağı, parametrelerin nasıl geçirileceği vb gibi fonksiyonel olaylara ve değişkenlere EVM ‘nin anlayacağı türden bir iletişim kalıbı oluşturuyor diyebiliriz. </p>
 <p><img src="https://user-images.githubusercontent.com/82549640/182487932-67b8bcf9-4bcb-4516-acc6-c8df2c45d7ba.png"></p>
 
+<p>Şimdi kontratlarımız deploy etmeye hazır. Fakat bunun için deploy edeceğimiz ağ ve deploy scriptini yazmamız gerekmektedir.</p></br>
+• PRİVATE_KEY: Kontratı deploy edecek cüzdanın private key’i ni giriniz. Bu key'i tarayıcınızda fuji testnetine o an bağlı olan cüzdan adresinin keyidir.Özel anahtarı dışa aktar diyerek ulaşabilirsiniz.
+<p><img src="https://user-images.githubusercontent.com/82549640/182501192-eaa9b37e-ca70-48a1-ad33-a08c9491c3b5.png"></p>
+
