@@ -277,7 +277,7 @@ Client adını verdiğimiz react projesi  indikten sonra terminalde <code>cd cli
 • <b>addresses.js</b> -> Bu dosya da hardhat ile Fuji testnetine deploy ettiğimiz yani etkileşime geçeceğimiz kontratların adreslerini tutan değişkenler oluşturuyoruz.</br>
 <p><img src="https://user-images.githubusercontent.com/82549640/183262527-88c6d4eb-0687-4bb8-8723-8f369facefde.png"></p>
 
-• <b>addresses.js</b> ->  Bu dosyada ise kontratlarımızın abi kodlarını tutan değişkenler oluşturuyoruz. Abi kodlarını ayrı ayrı aşağıdaki dosya yolunu takip ederek hardhat projemizin artifacts klasörü altından ulaşabilirsiniz.</br>
+• <b>abi.js</b> ->  Bu dosyada ise kontratlarımızın abi kodlarını tutan değişkenler oluşturuyoruz. Abi kodlarını ayrı ayrı aşağıdaki dosya yolunu takip ederek hardhat projemizin artifacts klasörü altından ulaşabilirsiniz.</br>
 medium-proje\artifacts\contracts\Lock.sol/Lock.json </br>
 medium-proje\artifacts\contracts\Token.sol/BeeToken.json </br>
 <p><img src="https://user-images.githubusercontent.com/82549640/183262604-774b79da-d987-4b39-ade1-7b4e3cff9b62.png"></p>
