@@ -282,4 +282,36 @@ medium-proje\artifacts\contracts\Lock.sol/Lock.json </br>
 medium-proje\artifacts\contracts\Token.sol/BeeToken.json </br>
 <p><img src="https://user-images.githubusercontent.com/82549640/183262604-774b79da-d987-4b39-ade1-7b4e3cff9b62.png"></p>
 
+<p>Artık ether js ile hali hazırda Blockchain üzerinde olan kontratlar ile iletişime geçeceğiz. Bu adıma başlamadan önce react bilginizi var olduğunu düşünüyorum sadece ethers.js kütüphanesi ile yazdığım kodları açıklayacağım.</p>	
+<p>Hatırlatma olarak biz Lock ve BeeToken kontratlarımızı deploy etmiştik. Yani bu kontratlar Blockchain üzerinde hali hazırda çalışmaktadır. Yapmamız gerek ethers kütüphanesi ile bu kontratların projemizde bir instance ‘larını oluşturarak iletişime geçmek kaldı.</p>
+<p>Projemizin senaryosunda sadece Lock kontratı ile iletişime geçmemiz gerekmektedir. Hatırlarsak Lock.sol dosyasında yazdığımız kontratta constructor parametresi ile BeeToken’ın adresini girmiştik ve Lock kontratı içerisinde BeeToken türünde Token adında bir instance oluşturarak bu kontratı atamıştık. Bu demek oluyor ki Lock kontratı kendi içerisinde BeeToken kontratı ile etkileşim halinde. </p>
+<p>Bu yüzden bizim projemizin senaryosuna göre sadece Lock kontratını projemizde kullanmamız yeterli olacaktır.</p>
+<p>Src klasörünün altında “hooks” adında klasör oluşturuyorum. Bu klasör altında kendi hooklarımı yazarak projemin her yerine propslar ile göndermek yerine bu hooklarımı çağırarak ulaşabileceğim. Bunun en alternatif çözümlerinden biri ise redux-toolkit yöntemini kullanmaktır. Fakat bu yazımda hooks ve redux konularına değinmeden geçeceğim.
+	
+###Contract instance oluşturma
+	
+• <b>1.Adım</b>	
+	
+<p>“<b>hooks</b>” dizininin altında “<b>useLookContract</b>” adında .js dosyası oluşturuyoruz ve aşağıdaki yazdığımız kodlar ile blockchain üzerindeki “Lock” kontratının bir instance’sını oluşturuyoruz. Oluşturduğumuz bu hook’u çağırdığımızda bize bu instance’ı döndürecektir. Gelin kodlar ne işe yarıyor inceleyelim.</p>
 
+```
+import { useState,useEffect } from "react"
+import {ethers} from "ethers"
+import { LOCK_ADDRESS } from "../constants/adresses"
+import { LOCK_ABI } from "../constants/abi"
+
+export const useLockContract = ()=>{
+    const [contract,setContract] = useState("")
+
+    useEffect(()=>{
+        const provider = new ethers.providers.Web3Provider(window.ethereum)
+        const signer = provider.getSigner()
+        const _contract = new ethers.Contract(LOCK_ADDRESS,LOCK_ABI,signer)
+        setContract(_contract)
+    },[])
+
+    return contract;
+}
+
+```
+</br>
