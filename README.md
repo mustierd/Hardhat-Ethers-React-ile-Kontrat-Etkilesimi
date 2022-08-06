@@ -269,4 +269,17 @@ Client adını verdiğimiz react projesi  indikten sonra terminalde <code>cd cli
 <b>Not</b>: Burada unutmamamız gereken küçük bir detay var. Hem hardhat projemizin hem de react projemizin ayrı ayrı “<b>package.json</b>” dosyaları mevcuttur. Lütfen ilgili projeye paket kurulumları yaparken bulunduğunuz dizine dikkat edin. Çünkü react projesi bulunduğu dizindeki package.json’ u görerek oraya paketleri kurar. Biz gidip bir dizin dışındaki hardhat projemizin “package.json” dosyasına kurarsak react projemiz bu dosyayı göremeyip ilgili dosya bulunamadı gibi hatalar verecektir.
 <p><img src="https://user-images.githubusercontent.com/82549640/183262174-f80e16c8-54f4-4992-83c6-4b01705bf8d3.png"></p>
 
+## <p align="center">Ether.js ile Block zincir deki Kontratlar ile Etkileşim</p>
+
+<code>npm install ethers</code> ile “ethers” kütüphanesini react projemize dahil ediyoruz.(Not:React proje dizinini içerisinde olduğunuza dikkat edin.)</br>
+
+“<b>src</b>” dizinin altına “<b>constants</b>” adında klasör oluşturarak içerisine aşağıdaki dosyaları oluşturuyoruz.</br>
+• <b>addresses.js</b> -> Bu dosya da hardhat ile Fuji testnetine deploy ettiğimiz yani etkileşime geçeceğimiz kontratların adreslerini tutan değişkenler oluşturuyoruz.</br>
+<p><img src="https://user-images.githubusercontent.com/82549640/183262527-88c6d4eb-0687-4bb8-8723-8f369facefde.png"></p>
+
+• <b>addresses.js</b> ->  Bu dosyada ise kontratlarımızın abi kodlarını tutan değişkenler oluşturuyoruz. Abi kodlarını ayrı ayrı aşağıdaki dosya yolunu takip ederek hardhat projemizin artifacts klasörü altından ulaşabilirsiniz.</br>
+medium-proje\artifacts\contracts\Lock.sol/Lock.json </br>
+medium-proje\artifacts\contracts\Token.sol/BeeToken.json </br>
+<p><img src="https://user-images.githubusercontent.com/82549640/183262604-774b79da-d987-4b39-ade1-7b4e3cff9b62.png"></p>
+
 
