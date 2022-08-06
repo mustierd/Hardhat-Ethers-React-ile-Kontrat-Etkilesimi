@@ -368,3 +368,42 @@ Bu ağdaki Lock kontratın instance’sını bize döndürerek bunu değişkende
 </br>
 <p> Daha sonra kontratımızın instance’ı tuttuğumuz değişkeni state fonksiyonu ile contract değişkenine atıyoruz ve bu değişkeni döndürüyoruz. Yani oluşturduğumuz bu hook fonksiyonunu projemizin neresinde olursa olsun çağırdığımızda bize bu instance’ı verecektir.</p></br>
 
+### Front_end Baglama
+
+<p>Şimdi bunu useLockContract hook’umuzu app.js konratında çağırarak bir buton aracılığı ile Lock kontratımızda bulunan totalLocker() değişkenimize ulaşacağız. Bu değişken, konratımız üzerinde kilitlenen tokenların tamamını tutmaktadır.</p>
+```
+import { ethers } from 'ethers';
+import './App.css';
+import {useLockContract } from './hooks/useLooksContract';
+
+function App() {
+  const lockContract = useLockContract
+
+```
+</br>
+
+
+• <code>const lockContract = useLockContract()</code>.</br>
+ bu satırda Lock kontratımızın instance’sını oluşturduğumuz custom hook fonksiyonu ile çağırıyoruz.</br></br>
+ 
+•
+```
+const getTotalLocked = async() => {
+    const result = await lockContract?.totalLocked(); // lockkontratına erişim yok ise hata vermesin demek => "?"
+    console.log(ethers.utils.formatEther(result))
+  }
+
+```
+</br>
+<p>Burada önemli olan bir konuya değinmek istiyorum. Blockchain üzerinde kontratlar ile iletişime geçildiğinde bizlere promise döndürmektedir. Bunun için kontratlar ile iletişime geçilen işlemlerde asenkron fonksiyonlar tanımlayarak await ile belirtmeliyiz.</p>
+<p>Burada Lock kontratı üzerinden totalLocked değerini okuyarak result değişkenine atıyoruz. Ve bu değeri “formEther()” fonksiyonu ile ether türünden yazıyoruz. Blockchain üzerinde bu değerler 1018 basamaklıdır ve bu fonksiyon ile bu basamağı kaldırarak ether cinsine çeviriyoruz.</p></br>
+
+• 
+```
+<div className="App">
+      <button onClick={getTotalLocked}>Get Total Locked</button>
+      <hr/>
+    </div>
+```
+</br>
+Yazdığımız bu fonksiyonu butona tıklandığında çalışacak şekilde ayarlıyoruz.</br></br>
