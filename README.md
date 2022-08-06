@@ -13,7 +13,8 @@
 
 
 ### Testnet Nedir?
-<p>Test için kullanılacak alternatif bir blok zinciridir. Testnet paraları gerçek paralardan farklıdır ve testnet paralarının herhangi bir parasal değeri yoktur. Bu, uygulama geliştiricilerinin veya testçilerinin değerli madeni paralar kullanmak zorunda kalmadan deney yapmalarını sağlar. Testnetlerin diğer gerçek Mainnet'ler ile bir bağlantısı yoktur.</p>
+<p>Test için kullanılacak alternatif bir blok zinciridir. Testnet paraları gerçek paralardan farklıdır ve testnet paralarının herhangi bir parasal değeri yoktur. Bu, uygulama geliştiricilerinin veya testçilerinin değerli madeni paralar kullanmak zorunda kalmadan deney yapmalarını sağlar. Testnetlerin diğer gerçek Mainnet'ler ile bir bağlantısı yoktur.</p>![1](https://user-images.githubusercontent.com/82549640/183261003-0619f805-4681-414f-a933-ef37309c06b0.png)
+
 •	<b>Network Name</b>: Avalanche Fuji Testnet</br>
 •	<b>New RPC URL</b>: https://api.avax-test.network/ext/bc/C/rpc</br>
 •	<b>	ChainID</b>: 43113</br>
@@ -214,4 +215,41 @@ console.log("Contract address",token.address);
 ```
 </br>
 <p>Burada “BeeToken” kontratımızın bilgilerini Token değişkenine aktarıyoruz. Token.deploy() komutu ile kontratımız bu komut çalıştığında deploy edilecektir. Console.log ile deploy edilen bu kontratın adresini kontrol amaçlı görmek için ekrana mesaj olarak bastırıyorız.</p>
+
+<p><code>npx hardhat run scripts/deploy1.js --network fuji</code> komutu ile Token kontratımızı fuji ağına deploy ediyoruz.</p>
+<p>Contract address 0x94CFe96F0843D72ef4Cc62fc47c8c2854c0226bb</p>
+<p><img src="https://user-images.githubusercontent.com/82549640/183261014-e10ef4b9-e787-4276-a00a-3998ffaeab27.png"></p></br>
+
+<p><b>Lock.sol Kontrat için</b> -> deploy2.js</p>
+Hatırlarsanız Lock kontratımız constructor parametresi olarak BeeToken kontrat adresini almaktaydı. Yukarıda BeeToken kontratımızı deploy ettiğimiz adresi aşağıdaki constructor parametre alanına giriyoruz.
+
+```
+const {ethers} = require("hardhat");
+
+async function main(){
+
+    const Lock = await ethers.getContractFactory("Lock");
+    const lock = await Lock.deploy("0x94CFe96F0843D72ef4Cc62fc47c8c2854c0226bb");
+
+    console.log("Contract address",lock.address);
+}
+ main()
+    .then(()=> process.exit(0))
+    .catch((error)=>{
+        console.error(error);
+        process.exit(1);
+    })
+
+```
+</br>
+
+<p><code>npx hardhat run scripts/deploy2.js --network fuji</code> komutu ile Lock kontratımızı fuji ağına deploy ediyoruz.</p>
+<p>Contract address 0x0903De388e6B0c21687E58FCbBA2B642F0f1D583</p>
+<p><img src="https://user-images.githubusercontent.com/82549640/183261134-3ca6f9bb-8b09-46bd-8030-ec2d61ef42e8.png"></p></br>
+
+<p>Artık bu 2 kontratımız fuji test ağında deploy edilmiş bir şekilde faaliyetine başlamıştır.( https://testnet.snowtrace.io/ ) adresinde işlemlerinizin kontrollerini gerçekleştirebilirsiniz. Aşağıda gördüğünüz üzere Metamaskımız da aktif olan cüzdanımızın PRIVATE_KEY ile bu iki kontratı deploy etmiştik. Snowtrace den bu cüzdan adresinin doğruluğunu da kontrol etmiş olduk. Peki bu "Snowtrace" nedir ?
+
+### Snowtrace Nedir?
+<p>SnowTracebir blok zincir gezginidir. Ethereum'un uygulaması olan Etherscan'le çok benzerdir. Ethereum üzerinde Etherscan ile ulaşabildiğiniz her bilgiye, Avalanche blok zincirinde ise SnowTrace uygulamasıyla ulaşabilirsiniz</p>
+
 
