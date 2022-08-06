@@ -177,10 +177,31 @@ module.exports = {
 <p><b>Not:</b> Burada “hardhat-waffle” ‘ın içerisinde ethers kütüphanesi de olduğu için “hardhat-ethers” kütüphanesini kaldırırsak hata vermeyecektir.</p>
 <p><img src="https://user-images.githubusercontent.com/82549640/182501192-eaa9b37e-ca70-48a1-ad33-a08c9491c3b5.png"></p></br>
 
+->Deploy adımı</br>
 <p>Daha sonra ethers.js kütüphanesinden yararlanarak deploy scriptlerini yazıyoruz. Bu scriptleri çalıştırdığımızda kontratlarımız seçtiğimiz ağa deploy olacaktır. Burada ayrı ayrı 2 script yazmalıyız çünkü 2 farklı kontratımız mevcut.</p>
 <p><b>Not</b>: Blockchain ile iletişime geçilen durumlarda promise değeri döndürüleceği için async-await olarak tanımlama yapılmalıdır.</p></br>
 
 <p><b>Token.sol Kontrat için -></b> deploy1.js</p>
 
+```
+const {ethers} = require("hardhat");
 
+async function main(){
 
+    const Token = await ethers.getContractFactory("BeeToken");
+    const token = await Token.deploy();
+
+    console.log("Contract address",token.address);
+}
+ main()
+    .then(()=> process.exit(0))
+    .catch((error)=>{
+        console.error(error);
+        process.exit(1);
+    })
+
+```
+</br></br>
+<code>const {ethers} = require("hardhat");</code></br></br>
+• <p>Burada hardhat içerisinde ethers kütüphanesini kullandık. Bu kütüphane hardhat ekibi tarafından ethers.js kütüphanesine eklemeler yapılmış bir kütüphanedir.</p>
+<p>Örneğin ethers.js de “<b>new ContractFactory(contractAbi, contractByteCode);</b>” şeklinde kullanılmaktadır. Hardhat’in ethers kütüphanesinde abi ve bytecode girmemize gerek kalmadan “<b>getContracFacfory(Kontrat_adi)</b>” şeklinde çağırmamızı sağlamaktadır. Bir nevi işleri biraz kolaylaştırma amaçlanmıştır..</p>
