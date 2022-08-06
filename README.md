@@ -321,5 +321,18 @@ export const useLockContract = ()=>{
 <b>useState(): </b> Bize bir değer(contract) ve bu değeri değiştirmemize yarayan fonksiyon(setContract) döndürür.(“”) içerisindeki değer ise default değeri belirtir.</br>
 
 • <code> useEffect(()=>{},[])</code>.</br>
-<b>useEffect</b> Render edildikten sonra ilk çalışacak fonksiyondur. İlk parametresi bir fonksiyondur. Bu fonksiyonun içerisine yazdığımız kodlar component render edildiğinde diğer fonksiyonlardan önce çalışacaktır.</br>
-2. parametresi dizi almaktadır. yukardaki gibi boş bir dizi ([]) ile tanımlarsak, component render edildiğinde bir kez çalışır.Eğer içerisine değişken girmiş olsaydık ([value]), value değişkeni her değiştiğinde useEffect fonksiyonu her defasında yeniden çalışacaktı.</br>
+<b>useEffect</b> Render edildikten sonra ilk çalışacak fonksiyondur. İlk parametresi bir fonksiyondur. Bu fonksiyonun içerisine yazdığımız kodlar component render edildiğinde diğer fonksiyonlardan önce çalışacaktır. İkinci parametresi dizi almaktadır. yukardaki gibi boş bir dizi ([]) ile tanımlarsak, component render edildiğinde bir kez çalışır.Eğer içerisine değişken girmiş olsaydık ([value]), value değişkeni her değiştiğinde useEffect fonksiyonu her defasında yeniden çalışacaktı.</br>
+
+```
+useEffect(()=>{
+        const provider = new ethers.providers.Web3Provider(window.ethereum)
+        const signer = provider.getSigner()
+        const _contract = new ethers.Contract(LOCK_ADDRESS,LOCK_ABI,signer)
+        setContract(_contract)
+    },[])
+
+    return contract;
+```
+</br>
+*** Öncelikle aşağıdaki kavramların ne iş yaptıkarlını bilirsek, problemler üzerindeki hakimiyetlerimiz artacaktır. Bu kavramlar;</br>
+<b>window.ethereum ? Metamask? Provider ? Npdes ?</b>
