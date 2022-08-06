@@ -371,6 +371,7 @@ Bu ağdaki Lock kontratın instance’sını bize döndürerek bunu değişkende
 ### Front_end Baglama
 
 <p>Şimdi bunu useLockContract hook’umuzu app.js konratında çağırarak bir buton aracılığı ile Lock kontratımızda bulunan totalLocker() değişkenimize ulaşacağız. Bu değişken, konratımız üzerinde kilitlenen tokenların tamamını tutmaktadır.</p>
+
 ```
 import { ethers } from 'ethers';
 import './App.css';
@@ -392,7 +393,6 @@ const getTotalLocked = async() => {
     const result = await lockContract?.totalLocked(); // lockkontratına erişim yok ise hata vermesin demek => "?"
     console.log(ethers.utils.formatEther(result))
   }
-
 ```
 </br>
 <p>Burada önemli olan bir konuya değinmek istiyorum. Blockchain üzerinde kontratlar ile iletişime geçildiğinde bizlere promise döndürmektedir. Bunun için kontratlar ile iletişime geçilen işlemlerde asenkron fonksiyonlar tanımlayarak await ile belirtmeliyiz.</p>
@@ -408,6 +408,68 @@ const getTotalLocked = async() => {
 </br>
 Yazdığımız bu fonksiyonu butona tıklandığında çalışacak şekilde ayarlıyoruz.</br></br>
 
-<p><code>“npm start” </code></p> diyerek react projesini çalıştırıyoruz.Default olarak Localhost:3000 portunda çalışmaktadır.</br>
+<p><code>“npm start” </code> diyerek react projesini çalıştırıyoruz.Default olarak Localhost:3000 portunda çalışmaktadır.</p></br>
 <p><img src="https://user-images.githubusercontent.com/82549640/183268868-bccb4b57-8aee-4c54-9e1f-79379889e675.png"></p>
 Daha önceden başka cüzdan ile Lock kontratına deneme olarak 0.00222 ether göndermiştim. Bu değeri bize getirdi.
+
+### <b>2.Adım</b>
+<p>Bu adımda “useGetSigner” adında yeni bir hook oluşturuyoruz ve bu hook bize o anki anlık metamask üzerinden hesap adresini döndürmektedir. Metamask üzerinde cüzdan adresini değiştirdiğimizde signer değişkeni otomatik olarak güncellenecektir.</p>
+<p>Bu fonksiyonda Windows.ethereum ‘a “accountsChanged” fonksiyonunu çalıştırmasını söylüyoruz ve bu fonksiyona bize ağdaki aktif kullanıcı adreslerini döndürmektedir. Biz 1. Adresi yani o anki aktif adresi signer değişkenine kaydediyoruz ve fonksiyonumuz bu değişkeni bize döndürüyor.</p>
+
+<b>useGetSigner.js.js</b>
+
+```
+import { useState,useEffect } from "react"
+
+export const useGetSigner = () =>{
+    const [signer,setSigner] = useState()
+
+    useEffect(()=>{
+        window.ethereum.on("accountsChanged", (accounts) => {
+            if (accounts.length > 0) {
+              setSigner(accounts[0]);
+            } else {
+              alert("Adres Bulunamadı.")
+            }
+          });
+    },[])
+
+    return signer;
+}
+
+```
+</br>
+
+• useGetSigner() hookumuzu çağırarak kullanıcı adresini getSigner değişkenine atıyoruz.</br></br>
+<b>App.js</b>
+
+```
+import { ethers } from 'ethers';
+import './App.css';
+import {useLockContract } from './hooks/useLooksContract';
+import {useGetSigner} from './hooks/useGetSigner';
+
+function App() {
+  const lockContract = useLockContract()
+  const getSigner = useGetSigner()
+
+  const getTotalLocked = async() => {
+    const result = await lockContract?.totalLocked(); // lockkontratına erişim yok ise hata vermesin demek => "?"
+    console.log(ethers.utils.formatEther(result))
+  }
+  return (
+    <div className="App">
+      <button onClick={getTotalLocked}>Get Total Locked</button>
+      <hr/>
+      <h2>Address : {getSigner}</h2>
+      <hr/>
+    </div>
+  );
+}
+export default App;
+
+```
+</br>
+
+• <code><h2>Address : {getSigner}</h2></code> ile Kullanıcının yani kontrat ile etkileşime geçecek adresi ekrana yazdırıyoruz.</br>
+<p><img src="https://user-images.githubusercontent.com/82549640/183269140-ee4f041e-cbf2-49ef-a6eb-eee9eb826537.png"></p>
