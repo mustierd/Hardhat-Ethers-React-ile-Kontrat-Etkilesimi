@@ -335,12 +335,36 @@ useEffect(()=>{
 ```
 </br>
 *** Öncelikle aşağıdaki kavramların ne iş yaptıkarlını bilirsek, problemler üzerindeki hakimiyetlerimiz artacaktır. Bu kavramlar;</br>
-<b>window.ethereum ? Metamask? Provider ? Nodes ?</b></br>
+<b>window.ethereum ? Nodes ?  Provider ? Metamask ?</b></br></br>
 <p>“window.ethereum”, metamask uygulamasının içerisinde gelen yazılımdır. window.ethereum'da ziyaret edilen web sitelerine global bir API enjekte eder. Bu API, web sitelerinin kullanıcıların Ethereum hesaplarını talep etmesine, kullanıcının bağlı olduğu blok zincirlerinden veri okumasına ve kullanıcının mesajları ve işlemleri imzalamasını önermesine olanak tanır. </p>
 <p>Muhtemelen bildiğiniz gibi, Blockchain ile iletişime geçmek için düğümlere(nodes) ihtiyacımız var ve bu düğümlerin her biri blok zincirinin bir kopyasına sahiptir. Blok zinciri ile etkileşime geçmek istediğimizde, bu düğümlerden biriyle etkileşime girmemiz gerekiyor.</p>
 <p>Düğümlerle konuşmak istiyorsak yapmak isteyeceğimiz ilk şey, hangi düğümle konuşacağımızı belirlemektir. Kendi düğümünüzü kurabilir veya düğümlerden birini Infura ve Alchemy gibi üçüncü taraf hizmetler tarafından kullanabilirsiniz. İster kendiniz kurmuş olun, ister mevcut hizmetlerden birini kullanmış olun, blok zinciri ile etkileşime girdiğinizde bağlandığınız bu düğümlere providers. denir.</p>
 <p>Bir provider aracılığıyla blok zincirine bağlandığınızda, blok zincirinin durumunu okuyabilirsiniz, ancak durumu değiştirmek ve blok zincirine yazmak için sign mesajlara ihtiyacımız olacaktır. Mesajları imzalamak için cüzdanlarımızın private key lerine ihtiyacımız vardır. Şimdi bir dApp oluşturuyorsanız, muhtemelen kullanıcı anahtarlarını saklamak veya onlardan istemek en iyi fikir değildir. İşte burada Metamask ‘ın hizmeti devreye giriyor.</p>
 <p>Metamask, bu anahtar yönetimini gerçekleştiren bir araçtır. Bunun da ötesinde, blok zincirine bir bağlantı sağlar. Bunun nedeni, Metamask'ın Infura nodes tarafından sağlanan bağlantıya zaten sahip olmasıdır. Blok zincirine bağlanmak için tek yapmanız gereken sağlayıcıdan (Infura düğümlerinden biri) MetaMask'ı istemektir.</p>
 <p>Özetlemek gerekirse;</p>
+	1. Provider blok zinciri ile etkileşim kurmak için kullandığınız düğümdür.</br>
+	2. Metamask, anahtar yönetimini ele alarak ve dApp'i bir sağlayıcıya bağlayarak dApp geliştirmeyi kolaylaştıran bir araçtır.</br></br>
+	
+<p> Şimdi kodlarımıza tekrar dönelim ve bu kodların ne işe yaradıklarına bakalım;</p>
 
+• <code>const provider = new ethers.providers.Web3Provider(window.ethereum)</code>
+<p> etherjs kütüphanesini kullanarak provider’ımızı “window.ethereum” olarak belirtiyoruz ve provider değişkenine atıyoruz.Metamask bize o an bağlı olduğu ağın rpc ni getirerek otomatik o api’nin getirdiği node’a yani providera bağlantı kuruyor.</p></br>
+
+• <code>const signer = provider.getSigner()</code>
+<p> Metamask’ımız da o an ki aktif olan imzalayıcı olan cüzdanı getirir. Blockchaine veri yazarken bu signer ile işlemler imzalanmaktadır.</p></br>
+
+• <code>cconst _contract = new ethers.Contract(LOCK_ADDRESS,LOCK_ABI,signer)</code>
+<p>Bu satırda blockchain’e deploy ettiğimiz Lock kontratın bilgilerini parametre olarak giriyoruz. 3.parametre olarak signer’ı giriyoruz. Burada blockchain’ e veri yazılması durumunda bu signer ile imzalanarak gas ücretini ödeyecektir. Buradaki signer yukarıda dediğimiz gibi metamask adresinde o an o ağda seçili olan hesaptır.
+Bu ağdaki Lock kontratın instance’sını bize döndürerek bunu değişkende tutuyoruz.</p></br>
+
+• 
+```
+       4 setContract(_contract)
+    },[])
+
+    return contract;
+
+```
+</br>
+<p> Daha sonra kontratımızın instance’ı tuttuğumuz değişkeni state fonksiyonu ile contract değişkenine atıyoruz ve bu değişkeni döndürüyoruz. Yani oluşturduğumuz bu hook fonksiyonunu projemizin neresinde olursa olsun çağırdığımızda bize bu instance’ı verecektir.</p></br>
 
