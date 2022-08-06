@@ -258,6 +258,7 @@ async function main(){
 <b>Lock.sol (Lock)</b>
 <p><img src="https://user-images.githubusercontent.com/82549640/183261461-11b4b91c-5017-4c73-ab9d-9cd395438705.png"></p></br>
 
+## <p align="center">React Projesinin Kurulumu</p>
 
 
 
