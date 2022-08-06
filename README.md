@@ -261,11 +261,12 @@ async function main(){
 ## <p align="center">React Projesinin Kurulumu</p>
 
 Hardhat proje dosyamızın ana dizinine react projemizi oluşturuyoruz. Oluşturduğumuzda projemizin dosya görünümü aşağıdaki gibi olacaktır.</br>
-<p><img src="https://user-images.githubusercontent.com/82549640/183261984-55021220-7d2d-4cc4-ad03-9e89c639dddc.png"></p></br>
+<p><img src="https://user-images.githubusercontent.com/82549640/183261984-55021220-7d2d-4cc4-ad03-9e89c639dddc.png"></p>
 
-Client adını verdiğimiz react projesi  indikten sonra terminalde “cd client” kodu ile client dizinine geçiş yapıyoruz. Artık cüzdan bağlama ve kontrat ile etkileşime bu client adını verdiğimiz web projesi içerisinde yapacağız.</br>
-<p><img src="https://user-images.githubusercontent.com/82549640/183262013-dd4d6ee5-56e3-4941-af3d-79b7042e510e.png"></p></br>
+Client adını verdiğimiz react projesi  indikten sonra terminalde <code>cd client</code> kodu ile client dizinine geçiş yapıyoruz. Artık cüzdan bağlama ve kontrat ile etkileşime bu client adını verdiğimiz web projesi içerisinde yapacağız.</br>
+<p><img src="https://user-images.githubusercontent.com/82549640/183262013-dd4d6ee5-56e3-4941-af3d-79b7042e510e.png"></p>
 
-<b>Not</b>: Burada unutmamamız gereken küçük bir detay var. Hem hardhat projemizin hem de react projemizin ayrı ayrı “package.json” dosyaları mevcuttur. Lütfen ilgili projeye paket kurulumları yaparken bulunduğunuz dizine dikkat edin. Çünkü react projesi bulunduğu dizindeki package.json’ u görerek oraya paketleri kurar. Biz gidip bir dizin dışındaki hardhat projemizin “package.json” dosyasına kurarsak react projemiz bu dosyayı göremeyip ilgili dosya bulunamadı gibi hatalar verecektir.
+<b>Not</b>: Burada unutmamamız gereken küçük bir detay var. Hem hardhat projemizin hem de react projemizin ayrı ayrı “<b>package.json</b>” dosyaları mevcuttur. Lütfen ilgili projeye paket kurulumları yaparken bulunduğunuz dizine dikkat edin. Çünkü react projesi bulunduğu dizindeki package.json’ u görerek oraya paketleri kurar. Biz gidip bir dizin dışındaki hardhat projemizin “package.json” dosyasına kurarsak react projemiz bu dosyayı göremeyip ilgili dosya bulunamadı gibi hatalar verecektir.
+<p><img src="https://user-images.githubusercontent.com/82549640/183262174-f80e16c8-54f4-4992-83c6-4b01705bf8d3.png"></p>
 
 
