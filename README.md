@@ -407,3 +407,7 @@ const getTotalLocked = async() => {
 ```
 </br>
 Yazdığımız bu fonksiyonu butona tıklandığında çalışacak şekilde ayarlıyoruz.</br></br>
+
+<p><code>“npm start” </code></p> diyerek react projesini çalıştırıyoruz.Default olarak Localhost:3000 portunda çalışmaktadır.</br>
+<p><img src="https://user-images.githubusercontent.com/82549640/183268868-bccb4b57-8aee-4c54-9e1f-79379889e675.png"></p>
+Daha önceden başka cüzdan ile Lock kontratına deneme olarak 0.00222 ether göndermiştim. Bu değeri bize getirdi.
