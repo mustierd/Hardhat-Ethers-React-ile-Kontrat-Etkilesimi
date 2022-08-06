@@ -288,9 +288,9 @@ medium-proje\artifacts\contracts\Token.sol/BeeToken.json </br>
 <p>Bu yüzden bizim projemizin senaryosuna göre sadece Lock kontratını projemizde kullanmamız yeterli olacaktır.</p>
 <p>Src klasörünün altında “hooks” adında klasör oluşturuyorum. Bu klasör altında kendi hooklarımı yazarak projemin her yerine propslar ile göndermek yerine bu hooklarımı çağırarak ulaşabileceğim. Bunun en alternatif çözümlerinden biri ise redux-toolkit yöntemini kullanmaktır. Fakat bu yazımda hooks ve redux konularına değinmeden geçeceğim.
 	
-###Contract instance oluşturma
+## Contract instance oluşturma
 	
-• <b>1.Adım</b>	
+### <b>1.Adım</b>	
 	
 <p>“<b>hooks</b>” dizininin altında “<b>useLookContract</b>” adında .js dosyası oluşturuyoruz ve aşağıdaki yazdığımız kodlar ile blockchain üzerindeki “Lock” kontratının bir instance’sını oluşturuyoruz. Oluşturduğumuz bu hook’u çağırdığımızda bize bu instance’ı döndürecektir. Gelin kodlar ne işe yarıyor inceleyelim.</p>
 
@@ -315,3 +315,11 @@ export const useLockContract = ()=>{
 
 ```
 </br>
+• Kontrat abilerini, adreslerini, ethers ve gerekli kütüphaneleri “useLockContrat.js” dosyasına import ediyoruz. İmport edilen dosyalar yeniden bu dosyada tanımlamamaksızın kullanmamızı sağlar.</br>
+
+• <code>const [contract,setContract] = useState("")</code>.</br>
+<b>useState(): </b> Bize bir değer(contract) ve bu değeri değiştirmemize yarayan fonksiyon(setContract) döndürür.(“”) içerisindeki değer ise default değeri belirtir.</br>
+
+• <code> useEffect(()=>{},[])</code>.</br>
+<b>useEffect</b> Render edildikten sonra ilk çalışacak fonksiyondur. İlk parametresi bir fonksiyondur. Bu fonksiyonun içerisine yazdığımız kodlar component render edildiğinde diğer fonksiyonlardan önce çalışacaktır.</br>
+2. parametresi dizi almaktadır. yukardaki gibi boş bir dizi ([]) ile tanımlarsak, component render edildiğinde bir kez çalışır.Eğer içerisine değişken girmiş olsaydık ([value]), value değişkeni her değiştiğinde useEffect fonksiyonu her defasında yeniden çalışacaktı.</br>
