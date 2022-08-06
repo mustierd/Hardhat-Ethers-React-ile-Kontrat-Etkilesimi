@@ -202,6 +202,16 @@ async function main(){
 
 ```
 </br></br>
-<code>const {ethers} = require("hardhat");</code></br></br>
-• <p>Burada hardhat içerisinde ethers kütüphanesini kullandık. Bu kütüphane hardhat ekibi tarafından ethers.js kütüphanesine eklemeler yapılmış bir kütüphanedir.</p>
+•<code>const {ethers} = require("hardhat");</code></br>
+<p>Burada hardhat içerisinde ethers kütüphanesini kullandık. Bu kütüphane hardhat ekibi tarafından ethers.js kütüphanesine eklemeler yapılmış bir kütüphanedir.</p>
 <p>Örneğin ethers.js de “<b>new ContractFactory(contractAbi, contractByteCode);</b>” şeklinde kullanılmaktadır. Hardhat’in ethers kütüphanesinde abi ve bytecode girmemize gerek kalmadan “<b>getContracFacfory(Kontrat_adi)</b>” şeklinde çağırmamızı sağlamaktadır. Bir nevi işleri biraz kolaylaştırma amaçlanmıştır..</p>
+
+•
+```
+const Token = await ethers.getContractFactory("BeeToken");
+const token = await Token.deploy();
+console.log("Contract address",token.address);
+```
+</br>
+<p>Burada “BeeToken” kontratımızın bilgilerini Token değişkenine aktarıyoruz. Token.deploy() komutu ile kontratımız bu komut çalıştığında deploy edilecektir. Console.log ile deploy edilen bu kontratın adresini kontrol amaçlı görmek için ekrana mesaj olarak bastırıyorız.</p>
+
