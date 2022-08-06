@@ -250,6 +250,12 @@ async function main(){
 <p>Artık bu 2 kontratımız fuji test ağında deploy edilmiş bir şekilde faaliyetine başlamıştır.( https://testnet.snowtrace.io/ ) adresinde işlemlerinizin kontrollerini gerçekleştirebilirsiniz. Aşağıda gördüğünüz üzere Metamaskımız da aktif olan cüzdanımızın PRIVATE_KEY ile bu iki kontratı deploy etmiştik. Snowtrace den bu cüzdan adresinin doğruluğunu da kontrol etmiş olduk. Peki bu "Snowtrace" nedir ?
 
 ### Snowtrace Nedir?
-<p>SnowTracebir blok zincir gezginidir. Ethereum'un uygulaması olan Etherscan'le çok benzerdir. Ethereum üzerinde Etherscan ile ulaşabildiğiniz her bilgiye, Avalanche blok zincirinde ise SnowTrace uygulamasıyla ulaşabilirsiniz</p>
+<p>SnowTracebir blok zincir gezginidir. Ethereum'un uygulaması olan Etherscan'le çok benzerdir. Ethereum üzerinde Etherscan ile ulaşabildiğiniz her bilgiye, Avalanche blok zincirinde ise SnowTrace uygulamasıyla ulaşabilirsiniz. İşlemler, bloklar, cüzdan adresleri, akıllı sözleşmeler ve diğer zincir üstü veriler arasında arama yapmanıza imkan tanır.</p>
+
+<b>Token.sol (BeeToken)</b>
+<p><img src="https://user-images.githubusercontent.com/82549640/183261134-3ca6f9bb-8b09-46bd-8030-ec2d61ef42e8.png"></p></br>
+
+<b>Lock.sol (Lock)</b>
+<p><img src="https://user-images.githubusercontent.com/82549640/183261134-3ca6f9bb-8b09-46bd-8030-ec2d61ef42e8.png"></p></br>
 
 
