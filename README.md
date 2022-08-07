@@ -291,10 +291,8 @@ medium-proje\artifacts\contracts\Token.sol/BeeToken.json </br>
 <p>Bu yüzden bizim projemizin senaryosuna göre sadece Lock kontratını projemizde kullanmamız yeterli olacaktır.</p>
 <p>Src klasörünün altında “hooks” adında klasör oluşturuyorum. Bu klasör altında kendi hooklarımı yazarak projemin her yerine propslar ile göndermek yerine bu hooklarımı çağırarak ulaşabileceğim. Bunun en alternatif çözümlerinden biri ise redux-toolkit yöntemini kullanmaktır. Fakat bu yazımda hooks ve redux konularına değinmeden geçeceğim.
 	
-## Contract instance oluşturma
-	
-### <b>1.Adım</b>	
-	
+### Contract instance oluşturma
+		
 <p>“<b>hooks</b>” dizininin altında “<b>useLookContract</b>” adında .js dosyası oluşturuyoruz ve aşağıdaki yazdığımız kodlar ile blockchain üzerindeki “Lock” kontratının bir instance’sını oluşturuyoruz. Oluşturduğumuz bu hook’u çağırdığımızda bize bu instance’ı döndürecektir. Gelin kodlar ne işe yarıyor inceleyelim.</p>
 
 ```
@@ -415,7 +413,7 @@ Yazdığımız bu fonksiyonu butona tıklandığında çalışacak şekilde ayar
 <p><img src="https://user-images.githubusercontent.com/82549640/183268868-bccb4b57-8aee-4c54-9e1f-79379889e675.png"></p>
 Daha önceden başka cüzdan ile Lock kontratına deneme olarak 0.00222 ether göndermiştim. Bu değeri bize getirdi.
 
-### <b>2.Adım</b>
+### Metamask'a bağlı cüzdan adresini çağırma
 <p>Bu adımda “useGetSigner” adında yeni bir hook oluşturuyoruz ve bu hook bize o anki anlık metamask üzerinden hesap adresini döndürmektedir. Metamask üzerinde cüzdan adresini değiştirdiğimizde signer değişkeni otomatik olarak güncellenecektir.</p>
 <p>Bu fonksiyonda Windows.ethereum ‘a “accountsChanged” fonksiyonunu çalıştırmasını söylüyoruz ve bu fonksiyona bize ağdaki aktif kullanıcı adreslerini döndürmektedir. Biz 1. Adresi yani o anki aktif adresi signer değişkenine kaydediyoruz ve fonksiyonumuz bu değişkeni bize döndürüyor.</p>
 
@@ -442,6 +440,7 @@ export const useGetSigner = () =>{
 
 ```
 </br>
+### Front_end Baglama
 
 • useGetSigner() hookumuzu çağırarak kullanıcı adresini getSigner değişkenine atıyoruz.</br></br>
 <b>App.js</b>
