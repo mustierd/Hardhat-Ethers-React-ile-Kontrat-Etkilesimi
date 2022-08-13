@@ -495,4 +495,4 @@ export default App;
 
 •<b>allowance()</b>
 <p><img src="https://user-images.githubusercontent.com/82549640/184493789-5d4bea62-a798-45a3-9c86-9e916318e2dd.png"></p>
-
+<p>allowance, bir kontrata tokenlarınızı yönetmesi için izin verdiğinizde, kontratın çekebileceği ne kadar çekim limitinin kaldığını gösterir. Örneğin, haber bültenine 6 aylık abone olduk ve toplam 6 BeeToken çeklim limiti hakkı verdik. 4 ay zaman geçtkten sonra aylık 1 BeeToken olduğuna göre 4 ay sonucu 4 BeeToken bizim cüzdanımızdan Haber Bülteni kontratına transfer olmuş olur. Biz "allowance" fonksiyonunu çağırdığımızda bize kalan çekim limiti hakkı olan 2 BeeToken değerini döndürür.
