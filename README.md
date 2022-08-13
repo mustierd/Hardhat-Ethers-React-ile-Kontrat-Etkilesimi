@@ -612,4 +612,21 @@ const approve = async() =>{
 ```
 </br>
 
-Burada provider,signer,tokenContract satırındaki kodları yukarıda açıkladığım için direk try bloğundan başlayacağım. <b>Try</b> bloğunun yapısı geneli içerisinde kodlar hatalı duruma düşer ise, <b>catch</b> bloğunun içerisindeki hata fırlatılır. Biz burada try bloğunun içerisinde hata alırsak "<b>approving</b>" state'ini false durumuna döndüreceğimizi söyledik.
+<p>Burada provider, signer, tokenContract satırındaki kodları yukarıda açıkladığım için direk try bloğundan başlayacağım. <b>Try</b> bloğunun yapısı geneli içerisinde kodlar hatalı duruma düşer ise, <b>catch</b> bloğunun içerisindeki hata fırlatılır. Biz burada try bloğunun içerisinde hata alırsak "<b>approving</b>" state'ini false durumuna döndüreceğimizi söyledik.</p>
+
+
+```
+try {
+            const txn = await tokenContract.approve(LOCK_ADDRESS,ethers.constants.MaxUint256)
+            await txn.wait();
+            setIsApproving(false);
+            getAllowance()
+        }catch{
+            setIsApproving(false);
+
+        }
+```
+</br>
+
+• <code>const txn = await tokenContract.approve(LOCK_ADDRESS,ethers.constants.MaxUint256)</code>
+<p> Burada BeeToken kontratındaki <b>approve</b> fonksiyonunu çalıştırıyoruz. İlk parametre olarak, "transferFrom()" fonksiyonunu kullanarak tokenlarımızı transfer etme iznini vereceğimiz adresi giriyoruz. Bu Haber Bülteni örneğimizdeki Haber Bülteni'nin kontrat adresidir.</p></br>
