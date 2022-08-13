@@ -499,7 +499,7 @@ export default App;
 	<p><img src="https://user-images.githubusercontent.com/82549640/184504893-ffa32e98-11f7-4da1-8586-b67a01a9f4b9.png"></p>
 <p>Allowance fonksiyonu da 2 parametre almaktadır. Bunların ilki "<b>_owner</b>" adresidir. Bu adres, haber bülteni örneğimizdeki Token'ların sahibi yani bizim adresimizdir. 2.parametre ise "<b>_spender</b>" adresidir. Bu adres ise yine haber bülteni örneğimzden ilerlersek haber bülteninin kontrat adresidir.</p>
 <p>Kısacası bu fonksiyon hangi token sahibinin hangi adreslere ödeme hakkı(approve) verdiyse, o ödeme miktarından kalan değeri verir.</p>
-<p> Şimdi projemizin kodlarından ilerleyerek akıllı kontratlar üzerinde etkileşime geçerek approve ve allowance fonksiyonlarını çalıştıralım. İlk olarak daha önce yaptığımız işlemler gibi approve ve allowance işlerimlerini yapmak için "<br>useAllowance</br>" adında bir custom hook daha oluşturuyoruz. Son olarak dizin yapımız aşağıdaki gibi olmaktadır...</p>
+<p> Şimdi projemizin kodlarından ilerleyerek akıllı kontratlar üzerinde etkileşime geçerek approve ve allowance fonksiyonlarını çalıştıralım. İlk olarak daha önce yaptığımız işlemler gibi approve ve allowance işlerimlerini yapmak için "<b>useAllowance</b>" adında bir custom hook daha oluşturuyoruz. Son olarak dizin yapımız aşağıdaki gibi olmaktadır...</p>
 <p><img src="https://user-images.githubusercontent.com/82549640/184505444-cf38ea3d-cc5e-4c50-8dc6-9af007a08d88.png"></p>
 
 <b>useAllowance()</b>
