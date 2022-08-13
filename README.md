@@ -549,11 +549,11 @@ export const useAllowance = () => {
 
 •
 ```
- const [allowance,setAllowance] = useState()
+ const [allowance,setAllowance] = useState(BigNumber.from(0))
  const [approving,setIsApproving]= useState(false)
 ```
 </br>
-<p>ilk olarak allowance ve approving state değişkenlerini oluşturuyoruz. allowance bize akıllı kontratta kullanıcının verdiği ödeme izninde kalan ödeme miktarını verecektir. Burada ödeme  "<b>BigNumber.from(0)</b>" </p>
+<p>ilk olarak allowance ve approving state değişkenlerini oluşturuyoruz. allowance bize akıllı kontratta kullanıcının verdiği ödeme izninde kalan ödeme miktarını verecektir. Burada ödeme  "<b>BigNumber.from(0)</b>" türünden olacağınız belirtiyoruz. Çünkü ileride akıllı kontratlar üzerinde alabileceği en fazla çekim iznini vereceğiz ve bu gerçekten çok büyük bir sayı... </p>
 
 •
 ```
