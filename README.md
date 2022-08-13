@@ -484,4 +484,6 @@ export default App;
 <p> Bir ERC20 tokenları sadece oluşturulduğu o kontrat üzerinde balance değişkenleri üzerinde tutulmaktadır. Her kullanıcının kendine ait tokenları, cüzdan adresslerine göre saklanmaktadır(mapping). Bir kullanıcı başka bir adrese token transferi yaptığı an bu kontrat üzerindeki balance değişkeninde, gönderdiği tutar kendi bakiyesinden silinerek gönderdiği adresin bakiyesine eklenir. ERC20 de token transferi kaba tabir ile bu şekilde yapılmaktadır. Fakat burada ERC20 protokülünde "<b>approve</b>" adında bir fonksiyon vardır. Peki approve etmek ne anlama gelmektedir ? </p>
 
 ### Approve Nedir?
-<p>xx</p>
+<p>Sözlük anlamı "onaylamak" olan approve, ERC20 protokolünde de bu anlama gelmektedir. Yukarıda bahsettiğim gibi bir ERC20 token'ı bulunduğu kontrat dışına çıkmadan içerisinde balance değişkeninde tutulur. Bu tokenları ERC20 protokolü içerisinde bulunan <b>transfer()</b> fonksiyonu ile doğrudan kendi imzanız ile başka bir adrese token transferi yapabilirsiniz. Fakat ERC20 protokolünün içerisinde <b>transferFrom()</b> fonksiyonu ile de token transferlerini gerçekleştirebiliriz. Peki bu transfer ve transferFrom fonksiyonlarının arasında ki fark ne ? Bu fark, transfer fonksiyonu token sahibinin imzasını zorunlu kılarken, transferFrom fonksiyonu tokenın sahibini zorunlu kılmadan başka bir addresinde bu tokenları göndermesini olanak sağlar. İşte burada approve fonksiyonu devreye girmektedir.
+Peki token transferlerinde approve tam olarak ne işe yarıyor ve önemi ne ? Bunu bir örnek vererek açıklamak istiyorum;</p>
+<p> Bir</p>
