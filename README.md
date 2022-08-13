@@ -588,4 +588,4 @@ Bu ağdaki BeeToken kontratın instance’sını bize döndürerek bunu değişk
 <p>BeeToken kontratından(ERC20) <b>allowance</b> fonksiyonunu çalıştırıyoruz. İlk parametre olarak token sahibi olan yani o anki metamask cüzdanında hangi adres bu fonksiyonu çalıştırıyor ise( kısacası Haber Bülteni örneğinde bizim adresimiz) onun adresini giriyoruz. 2. parametre olarak ise lock kontratının ağa deploy edildiği adresini ( Haber Bülteni örneğinde bültenin kontrat adresi yani approve ettiğimiz adres) giriyoruz. Hatırlarsak bu fonksiyon getter fonksiyonu olduğu için bize kalan ödeme limitini döndürecektir ve result değişkeninde bu değeri tutuyoruz.</p></br>
 
 • <code>setAllowance(result)</code>
-<p> allowance değerini "<b>allowance</b>" state'in de aktarıyoruz.</p></br>
+<p> Result değişkeninde tuttuğumuz allowance değerini "<b>allowance</b>" state'ine aktarıyoruz.</p></br>
