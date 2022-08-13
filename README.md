@@ -1,4 +1,4 @@
-<img src="https://user-images.githubusercontent.com/82549640/184510032-6db813a6-062d-489b-8110-cb0e508ba6ae.png">
+<p align="center"><img width="700" height="600" src="https://user-images.githubusercontent.com/82549640/184510032-6db813a6-062d-489b-8110-cb0e508ba6ae.png"></p>
 
 ### GİRİŞ</br>
 <p>Bu yazımda, MetaMask gibi kullanıcı tarafından kontrol edilen cüzdanlarla çalışan Hardhat, React ve Ethers.js kullanarak yazdığımız akıllı kontratları testnet'e deploy edeceğiz ve bu kontratlar ile basit bir arayüz kodlayarak iletişime geçeceğiz. Bu süreçte sizlere en baştan kurulum ve ayarlamaları yaparak adım adım açıklayarak anlatmaya çalışacağım.
