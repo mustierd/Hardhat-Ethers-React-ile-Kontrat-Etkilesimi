@@ -589,3 +589,27 @@ Bu ağdaki BeeToken kontratın instance’sını bize döndürerek bunu değişk
 
 • <code>setAllowance(result)</code>
 <p> Result değişkeninde tuttuğumuz allowance değerini "<b>allowance</b>" state'ine aktarıyoruz.</p></br>
+
+
+```
+const approve = async() =>{
+        const provider = new ethers.providers.Web3Provider(window.ethereum)
+        const signer = provider.getSigner()
+        const tokenContract = new ethers.Contract(BeeTOKEN_ADDRESS,TOKEN_ABI,signer)
+        setIsApproving(true)
+        try {
+            const txn = await tokenContract.approve(LOCK_ADDRESS,ethers.constants.MaxUint256)
+            await txn.wait();
+            setIsApproving(false);
+            getAllowance()
+        }catch{
+            setIsApproving(false);
+
+        }
+    }
+
+    return {allowance,approving,approve}
+```
+</br>
+
+Burada provider,signer,tokenContract satırındaki kodları yukarıda açıkladığım için direk try bloğundan başlayacağım. <b>Try</b> bloğunun yapısı geneli içerisinde kodlar hatalı duruma düşer ise, <b>catch</b> bloğunun içerisindeki hata fırlatılır. Biz burada try bloğunun içerisinde hata alırsak "<b>approving</b>" state'ini false durumuna döndüreceğimizi söyledik.
