@@ -646,7 +646,7 @@ try {
 
 ### Front_end Baglama
 
-<p><img src="https://user-images.githubusercontent.com/82549640/184509282-aad8e0a4-7d3f-412c-a0db-374a7f1a2113.png"></p>
+<p><img src="https://user-images.githubusercontent.com/82549640/184509571-5ac29cd0-a480-4138-83ba-d37f72863a93.png"></p>
 
 <p>Artık son adıma geldik. Burada useAllowance() hookumuzu çağırarak etkileşimde bulunduğumuz kontrattaki değerleri ekrana aktaracağızç</p>
 <b>app.js</b>
