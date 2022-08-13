@@ -643,3 +643,57 @@ try {
 
 • <code>return {allowance,approving,approve}</code>
 <p> oluşturduğumuz <b>useAllowance()</b> hook'unu diğer sayfalardan (app.js) çağırdığımızda bize allowance, approving değişkenlerini ve approve() fonksiyonunu döndürecektir.</p>
+
+### Front_end Baglama
+<b>app.js</b>
+```
+import { ethers } from 'ethers';
+import { useState } from 'react';
+import './App.css';
+import {useLockContract } from './hooks/useLooksContract';
+import {useGetSigner} from './hooks/useGetSigner';
+import { useAllowance } from './hooks/useAllowance';
+
+function App() {
+  const lockContract = useLockContract()
+  const getSigner = useGetSigner()
+  const [value,setValue] = useState("")
+
+  const {allowance,approving,approve} = useAllowance()
+  
+  
+  const getTotalLocked = async() => {
+    const result = await lockContract?.totalLocked(); // lockkontratına erişim yok ise hata vermesin demek => "?"
+    console.log(ethers.utils.formatEther(result))
+  }
+
+  const lock = async()=>{
+     await lockContract.LockToken(ethers.utils.parseEther(value),5);
+  }
+
+  return (
+    <div className="App">
+      <button onClick={getTotalLocked}>Get Total Locked</button>
+      <hr/>
+      <input  onChange={(e)=> setValue( e.target.value)}/>
+      <button onClick={lock}>Lock Tokens</button>
+      <h2>Address : {getSigner}</h2>
+      <hr/>
+      <button onClick={approve}>Approve</button>
+      <div>
+      <h2>allowance : {ethers.utils.formatEther(allowance)}</h2>
+      <h2>{approving ? "Approving" : "!"}</h2>
+      </div>
+
+
+
+    </div>
+  );
+}
+
+export default App;
+
+```
+</br>
+
+• <p>useAllowance() hookumuzda döndürdüğümüz allowance,approving değişkenlerini ve approve fonksiyonunu alıyoruz.</p>
