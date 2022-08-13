@@ -639,4 +639,7 @@ try {
         setIsApproving(false);
         getAllowance()
 ```
-<p> Burada <code>await txn.wait()</code> ile approve işleminin bitmeden devam etmeyeceğini söylüyoruz. İşlem başarılı bir şekilde tamamlandıktan sonra <code>setIsApproving(false)</code> ile approving state'ini false durumuna geçmesini söylüyoruz ve <code>getAllowance()</code> ile allowance fonksiyonunu kontrattan tekrar okuyarak "allowance" state'ini güncelliyoruz.</p>
+<p> Burada <code>await txn.wait()</code> ile approve işleminin bitmeden devam etmeyeceğini söylüyoruz. İşlem başarılı bir şekilde tamamlandıktan sonra <code>setIsApproving(false)</code> ile approving state'ini false durumuna geçmesini söylüyoruz ve <code>getAllowance()</code> ile allowance fonksiyonunu tekrar çalıştırarak "allowance" state'ini güncelliyoruz.</p>
+
+• <code>return {allowance,approving,approve}</code>
+<p> oluşturduğumuz <b>useAllowance()</b> hook'unu diğer sayfalardan (app.js) çağırdığımızda bize allowance, approving değişkenlerini ve approve() fonksiyonunu döndürecektir.</p>
