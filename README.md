@@ -562,7 +562,7 @@ export const useAllowance = () => {
     },[])
 ```
 </br>
-<p>Burada ise app.js kontratından useAllowance hook'unu çağırır çağırmak getAllowance fonksiyonu BeeToken kontratına gidip allowance fonksiyonunu çalıştırarak bize değeri döndürecektir. Eğer approve yapmamışsak, allowance değerini girilmediği için default değer olarak 0 değerini döndürecektir.</p>
+<p>Burada ise app.js kontratından useAllowance hook'unu çağırır çağırmaz getAllowance fonksiyonu BeeToken kontratına gidip allowance fonksiyonunu çalıştırarak bize değeri döndürecektir. Eğer approve yapmamışsak, allowance değerini girilmediği için default değer olarak 0 değerini döndürecektir.</p>
 
 •
 ```
