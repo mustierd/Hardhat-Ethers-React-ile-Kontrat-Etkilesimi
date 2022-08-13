@@ -10,7 +10,7 @@
 4.Ethers.js</br>
 
 ## <p align="center">1.Metamask</p>
-### Metamask Nedir?
+###  Metamask Nedir?
 <p>Ethereum blok zinciri ile etkileşim kurmak için kullanılan bir yazılım kripto para cüzdanıdır. Kullanıcıların, daha sonra merkezi olmayan uygulamalarla etkileşim kurmak için kullanılabilecek bir tarayıcı uzantısı veya mobil uygulama aracılığıyla Ethereum cüzdanlarına erişmelerine olanak tanır. MetaMask, Ethereum tabanlı araçlara ve altyapıya odaklanan bir blok zinciri yazılım şirketi olan ConsenSys Software Inc. tarafından geliştirilmiştir. Blockchain sistemlerinde cüzdanınızın "Private Key"i sizin kimliğinizdir. Bu bilgi başkasının eline geçer ise Blockchain üzerinde sizin adınıza imzalar atarak siz gibi davranır. ConsenSys şirketi, Metamask'ın bu bilgileri kesinlikle kullanıcı dışında kimseye ulaştırmayan bir yapıda cüzdan yönetimi amacı ile tasarlamıştır. </p>
 <p>Metamask cüzdanınızı tarayıcınızın eklentiler kısmından indirebilirsiniz. Metamask cüzdanını kurduğunuzu varsayarak "Ağ Ekle" kısmından Avalanche'ın testneti olan "<b>Fuji Testnet</b>" ağını aşağıdaki bilgileri girerek ekliyoruz. Bu proje sürecinde Fuji testnetin cüzdanlarını kullanacağız ve kontratları bu ağa deploy edeceğiz. Kısaca Fuji ve testnet hakkında bilgi vermem gerekirse;</p>
 
@@ -261,7 +261,7 @@ async function main(){
 <b>Lock.sol (Lock)</b>
 <p><img src="https://user-images.githubusercontent.com/82549640/183261461-11b4b91c-5017-4c73-ab9d-9cd395438705.png"></p></br>
 
-## <p align="center">React Projesinin Kurulumu</p>
+## <p align="center">3) React Projesinin Kurulumu</p>
 
 Hardhat proje dosyamızın ana dizinine react projemizi oluşturuyoruz. Oluşturduğumuzda projemizin dosya görünümü aşağıdaki gibi olacaktır.</br>
 <p><img src="https://user-images.githubusercontent.com/82549640/183261984-55021220-7d2d-4cc4-ad03-9e89c639dddc.png"></p>
@@ -272,7 +272,7 @@ Client adını verdiğimiz react projesi  indikten sonra terminalde <code>cd cli
 <b>Not</b>: Burada unutmamamız gereken küçük bir detay var. Hem hardhat projemizin hem de react projemizin ayrı ayrı “<b>package.json</b>” dosyaları mevcuttur. Lütfen ilgili projeye paket kurulumları yaparken bulunduğunuz dizine dikkat edin. Çünkü react projesi bulunduğu dizindeki package.json’ u görerek oraya paketleri kurar. Biz gidip bir dizin dışındaki hardhat projemizin “package.json” dosyasına kurarsak react projemiz bu dosyayı göremeyip ilgili dosya bulunamadı gibi hatalar verecektir.
 <p><img src="https://user-images.githubusercontent.com/82549640/183262174-f80e16c8-54f4-4992-83c6-4b01705bf8d3.png"></p>
 
-## <p align="center">Ether.js ile Block zincir deki Kontratlar ile Etkileşim</p>
+## <p align="center"> 4) Ether.js ile Block zincir deki Kontratlar ile Etkileşim</p>
 
 <code>npm install ethers</code> ile “ethers” kütüphanesini react projemize dahil ediyoruz.(Not:React proje dizinini içerisinde olduğunuza dikkat edin.)</br>
 
