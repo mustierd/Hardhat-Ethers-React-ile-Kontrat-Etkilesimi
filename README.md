@@ -645,7 +645,9 @@ try {
 <p> oluşturduğumuz <b>useAllowance()</b> hook'unu diğer sayfalardan (app.js) çağırdığımızda bize allowance, approving değişkenlerini ve approve() fonksiyonunu döndürecektir.</p>
 
 ### Front_end Baglama
+<p>Artık son adıma geldik. Burada useAllowance() hookumuzu çağırarak etkileşimde bulunduğumuz kontrattaki değerleri ekrana aktaracağızç</p>
 <b>app.js</b>
+
 ```
 import { ethers } from 'ethers';
 import { useState } from 'react';
@@ -696,4 +698,15 @@ export default App;
 ```
 </br>
 
-• <p>useAllowance() hookumuzda döndürdüğümüz allowance,approving değişkenlerini ve approve fonksiyonunu alıyoruz.</p>
+• <code>const {allowance,approving,approve} = useAllowance()</code> 
+<p>useAllowance() hookumuzda döndürdüğümüz allowance,approving değişkenlerini ve approve fonksiyonunu alıyoruz.</p>
+
+• 
+
+```
+ const lock = async()=>{
+     await lockContract.LockToken(ethers.utils.parseEther(value),5);
+  }
+```
+</br>
+<p>lock() fonksiyonu ile <b>Lock</b> kontratı üzerindeki "<b>LockToken</b>" fonksiyonunu çalıştırıyoruz. Bu fonksiyon Lock kontratına token göndermemize yaramaktadır.Lock kontratını tekrar incelerseniz,  ilk parametre olarka gönderilecek token miktarını almaktadır. Bu miktarı input ekranında girilen değeri "parseEther" ile ether türüne çeviriyoruz.(Yani wei cinsinden sıfırlar ile uğraşmıyoruz.). 2. parametre olarak 5 değerini girmişiz. Bu ise LockToken fonksiyonunun en son çalıştırdığından 5 saniye içinde tekrar çalıştırılmayacağı anlamına gelmektedir.</p>
