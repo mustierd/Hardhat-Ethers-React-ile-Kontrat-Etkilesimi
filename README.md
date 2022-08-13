@@ -489,10 +489,10 @@ export default App;
 <p> Bir haber bültenine ait akıllı kontrat olduğunu düşünün.Bu haber bülteninin aylık ödemesi 1 BeeToken olsun. Siz her ay manuel olarak bu akıllı kontrata para göndermek yerine 6 aylık abone olmak istiyorsunuz ve her ay kendi cüzdanınızdan bu 1 BeeToken ücreti Haber bülteninin kontratı tarafından otomatik olarak çekilecektir. Burada otomatik ücret ödemesi <b>transferFrom()</b> fonksiyonu kullanılarak yazılmalıdır. Çünkü transferFrom fonksiyonu başka kontratın bizim tokenlarımızı transfer etme talebinde bulunmasını sağlayabiliyor. Fakat bu transferin gerçekleşmesi için bizim bu haber bültenine ait akıllı kontrata çekim onayını vermemiz gerekiyor. İşte bu onaya "<b>approve</b>" denmektedir. Peki biz bu onayı verdiğimizde bizim bakiyemizdeki tüm tokenları çekebilir mi ? evet çekebilir. Bu yüzden approve ile onay verirken bir limit de tanımlarız. Bu tanımladığımız çekim limitine ise "<b>allowance</b>" Olası onay verdiğimiz kontratta aksilik, hack gibi durumlarda bizim tanımladığımız limit kadar tokenlarımızı transfer edebilir. Bu tüm tokenlarımızı kaybetme riskinden bizi korumaktadır.</p>
 
 •<b>approve()</b>
-<p><img src="https://user-images.githubusercontent.com/82549640/184493713-6377b14b-54aa-4419-a6cb-2e90aec8767f.png"></p>
+<p><img src="https://user-images.githubusercontent.com/82549640/184494399-f304f118-8146-46cc-af3c-beb7451fdf4b.png"></p>
 <p>Approve fonksiyonu 2 parametre almaktadır. ilk parametre olan "<b>_spender</b>" token transferlerini gerçekleştirebilmesi için onay verdiğimiz kontrat adresidir. Yani bu bizim haber bülteni örneğindeki haber bültenine ait kontrat addresidir.</p>
 <p> ikinci parametre olan "<b>_value</b>" ise haber bülteni kontratına verdiğimiz çekim limitine denir.</p>
 
 •<b>allowance()</b>
-<p><img src="https://user-images.githubusercontent.com/82549640/184493789-5d4bea62-a798-45a3-9c86-9e916318e2dd.png"></p>
+<p><img src="https://user-images.githubusercontent.com/82549640/184494439-a6210af6-e4cf-4d96-9d3f-468901b9dc80.png"></p>
 <p>allowance, bir kontrata tokenlarınızı yönetmesi için izin verdiğinizde, kontratın çekebileceği ne kadar çekim limitinin kaldığını gösterir. Örneğin, haber bültenine 6 aylık abone olduk ve toplam 6 BeeToken çeklim limiti hakkı verdik. 4 ay zaman geçtkten sonra aylık 1 BeeToken olduğuna göre 4 ay sonucu 4 BeeToken bizim cüzdanımızdan Haber Bülteni kontratına transfer olmuş olur. Biz "allowance" fonksiyonunu çağırdığımızda bize kalan çekim limiti hakkı olan 2 BeeToken değerini döndürür.
