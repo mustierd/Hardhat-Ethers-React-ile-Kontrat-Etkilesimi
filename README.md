@@ -476,3 +476,9 @@ export default App;
 
 • <code>Address : {getSigner}</code> ile Kullanıcının yani kontrat ile etkileşime geçecek adresi ekrana yazdırıyoruz.</br>
 <p><img src="https://user-images.githubusercontent.com/82549640/183269140-ee4f041e-cbf2-49ef-a6eb-eee9eb826537.png"></p>
+
+### 3) Kontratlar ile etkileşim ve Approve Etme
+
+<p>Artık bu adımda, Fuji testnetine deploy ettiğimiz akıllı kontratlar ile etkileşime geçeceğiz. Etkileşime geçtikten sonra artık kontratlar üzerindeki fonksiyonlara erişebilir duruma gelerek veri yazabilir ve veri okuyabileceğiz.</p>
+<p>Hatırlarsak bizim kontratlarımızın biri ERC20 protokoli ile yazılmış "<b>BeeToken</b>" kontratımız, bir diğeri olan "<b>Lock</b>"kontratımız ise deploy olduğunu an constructor parametresi ile  BeeToken kontratımızın fuji blok zinciri üzerindeki kontrat adresini girerek bir instance oluşturmuştuk. Lock kontratımız bu BeeToken instance'sı sayesinde kontrat ile etkileşime geçerek BeeToken kontratı üzerindeki fonksiyonlarını kullanacaktır. </p>
+
