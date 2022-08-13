@@ -582,4 +582,10 @@ const getAllowance = async()=>{
 
 • <code>const tokenContract = new ethers.Contract(BeeTOKEN_ADDRESS,TOKEN_ABI,signer)</code>
 <p>Bu satırda blockchain’e deploy ettiğimiz <b>BeeToken</b> kontratın bilgilerini parametre olarak giriyoruz. 3.parametre olarak signer’ı giriyoruz. Burada blockchain’ e veri yazılması durumunda bu signer ile imzalanarak gas ücretini ödeyecektir. Buradaki signer yukarıda dediğimiz gibi metamask adresinde o an o ağda seçili olan hesaptır.
-Bu ağdaki BeeToken kontratın instance’sını bize döndürerek bunu değişkende tutuyoruz.</p></br>
+Bu ağdaki BeeToken kontratın instance’sını bize döndürerek bunu değişkende tutuyoruz.Artık <b>tokenContract</b> ile BeeToken fonksiyonlarını çalıştırabileceğiz.</p></br>
+
+• <code>const result = await tokenContract.allowance(signer.getAddress(),LOCK_ADDRESS)</code>
+<p>BeeToken kontratından(ERC20) <b>allowance</br> fonksiyonunu çalıştırıyoruz. İlk parametre olarak token sahibi olan yani o anki metamask cüzdanında hangi adres bu fonksiyonu çalıştırıyor ise( kısacası Haber Bülteni örneğinde bizim adresimiz) onun adresini giriyoruz. 2. parametre olarak ise lock kontratının ağa deploy edildiği adresini ( Haber Bülteni örneğinde bültenin kontrat adresi yani approve ettiğimiz adres) giriyoruz. Hatırlarsak bu fonksiyon getter fonksiyonu olduğu için bize kalan ödeme limitini döndürecektir ve result değişkeninde bu değeri tutuyoruz.</p></br>
+
+• <code>setAllowance(result)</code>
+<p> allowance değerini "<b>allowance</b>" state'in de aktarıyoruz.</p></br>
