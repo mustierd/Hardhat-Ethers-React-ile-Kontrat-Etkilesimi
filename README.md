@@ -737,4 +737,4 @@ export default App;
 <p><code>ethers.utils.formatEther(allowance)</code> ile "useAllowance()" hookumuzdan döndürdüğümüz allowance değerini ether türüne çevirerek ekrana yazdırıyoruz.</p>
 </br></br>
 
-Sizlere adım adım Metamask, Hardhat, Ethers.js, React araçları ile beraber proje oluşturarak nasıl kontratları block zinciri ağlarına deploy edeceğimizi ve bu deploy ettiğimiz kontralar ile nasıl etkileşime girerek front-end kısmında nasıl göstereceğimize değindim. Elimden geldiğince açıklamaya çalıştım. Konu hakkında sorularını olursa veya eksik gördüğünüz yerleri twitter: <b>@mustierd</b> adresinden bana ulaşabilirsiniz.
+<p align="center"> Sizlere adım adım Metamask, Hardhat, Ethers.js, React araçları ile beraber proje oluşturarak nasıl kontratları block zinciri ağlarına deploy edeceğimizi ve bu deploy ettiğimiz kontralar ile nasıl etkileşime girerek front-end kısmında nasıl göstereceğimize değindim. Elimden geldiğince açıklamaya çalıştım. Konu hakkında sorularını olursa veya eksik gördüğünüz yerleri twitter: <b>@mustierd</b> adresinden bana ulaşabilirsiniz.</p>
