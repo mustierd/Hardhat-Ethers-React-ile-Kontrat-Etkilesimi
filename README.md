@@ -581,3 +581,6 @@ const getAllowance = async()=>{
 • <code>const signer = provider.getSigner()</code>
 <p> Metamask’ımız da o an ki aktif olan imzalayıcı olan cüzdanı getirir. Blockchaine veri yazarken bu signer ile işlemler imzalanmaktadır.</p></br>
 
+• <code>const tokenContract = new ethers.Contract(BeeTOKEN_ADDRESS,TOKEN_ABI,signer)</code>
+<p>Bu satırda blockchain’e deploy ettiğimiz <b>BeeToken</b> kontratın bilgilerini parametre olarak giriyoruz. 3.parametre olarak signer’ı giriyoruz. Burada blockchain’ e veri yazılması durumunda bu signer ile imzalanarak gas ücretini ödeyecektir. Buradaki signer yukarıda dediğimiz gibi metamask adresinde o an o ağda seçili olan hesaptır.
+Bu ağdaki BeeToken kontratın instance’sını bize döndürerek bunu değişkende tutuyoruz.</p></br>
