@@ -499,5 +499,51 @@ export default App;
 	<p><img src="https://user-images.githubusercontent.com/82549640/184504893-ffa32e98-11f7-4da1-8586-b67a01a9f4b9.png"></p>
 <p>Allowance fonksiyonu da 2 parametre almaktadır. Bunların ilki "<b>_owner</b>" adresidir. Bu adres, haber bülteni örneğimizdeki Token'ların sahibi yani bizim adresimizdir. 2.parametre ise "<b>_spender</b>" adresidir. Bu adres ise yine haber bülteni örneğimzden ilerlersek haber bülteninin kontrat adresidir.</p>
 <p>Kısacası bu fonksiyon hangi token sahibinin hangi adreslere ödeme hakkı(approve) verdiyse, o ödeme miktarından kalan değeri verir.</p>
-<p> Şimdi projemizin kodlarından ilerleyerek akıllı kontratlar üzerinde etkileşime geçerek approve ve allowance fonksiyonlarını çalıştıralım.</p>
+<p> Şimdi projemizin kodlarından ilerleyerek akıllı kontratlar üzerinde etkileşime geçerek approve ve allowance fonksiyonlarını çalıştıralım. İlk olarak daha önce yaptığımız işlemler gibi approve ve allowance işlerimlerini yapmak için "<br>useAllowance</br>" adında bir custom hook daha oluşturuyoruz. Son olarak dizin yapımız aşağıdaki gibi olmaktadır...</p>
+<p><img src="https://user-images.githubusercontent.com/82549640/184505444-cf38ea3d-cc5e-4c50-8dc6-9af007a08d88.png"></p>
+
+<b>useAllowance()</b>
+```
+import { BigNumber, ethers } from "ethers"
+import { useEffect, useState } from "react"
+import { TOKEN_ABI } from "../constants/abi"
+import { BeeTOKEN_ADDRESS, LOCK_ADDRESS } from "../constants/adresses"
+
+export const useAllowance = () => {
+    const [allowance,setAllowance] = useState(BigNumber.from(0))
+    const [approving,setIsApproving]= useState(false)
+
+    useEffect(()=>{
+        getAllowance();
+    },[])
+
+    const getAllowance = async()=>{
+        const provider = new ethers.providers.Web3Provider(window.ethereum)
+        const signer = provider.getSigner()
+        const tokenContract = new ethers.Contract(BeeTOKEN_ADDRESS,TOKEN_ABI,signer)
+       const result = await tokenContract.allowance(signer.getAddress(),LOCK_ADDRESS)
+        setAllowance(result)
+    }
+
+    const approve = async() =>{
+        const provider = new ethers.providers.Web3Provider(window.ethereum)
+        const signer = provider.getSigner()
+        const tokenContract = new ethers.Contract(BeeTOKEN_ADDRESS,TOKEN_ABI,signer)
+        setIsApproving(true)
+        try {
+            const txn = await tokenContract.approve(LOCK_ADDRESS,ethers.constants.MaxUint256)
+            await txn.wait();
+            setIsApproving(false);
+            getAllowance()
+        }catch{
+            setIsApproving(false);
+
+        }
+    }
+
+    return {allowance,approving,approve}
+}
+
+```
+</br>
 
