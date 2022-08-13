@@ -719,4 +719,16 @@ export default App;
 ```
 </br>
 <p>İlk satırda input dan aldığımız değeri <b>value</b> state'ine aktarıyoruz. Daha sonra Lock Tokens butonuna tıklandığında yukarıda oluşturduğumuz <b>lock()</b> fonksiyonu çalışarak kontrata token kilitleme işlemini gerçekleştiriyoruz.</p>
-<p><b>Not:</b> Burada Lock kontratını hiç approve etmediğimiz için lock fonksiyonu çalışmayacak ve Lock kontratına token kilitleyemeyeceğiz. Bunun için aşağıdaki approve butonuna tıklayarak ilk önce approve işlemi gerçekleşecektir ve daha sonra "Lock Tokens" butonuna tıklayarak token kilitleme işlemini yapabiliriz.</p>
+<p><b>Not:</b> Burada Lock kontratını hiç approve etmediğimiz için lock fonksiyonu çalışmayacak ve Lock kontratına token kilitleyemeyeceğiz. Bunun için aşağıdaki approve butonuna tıklayarak ilk önce izin vereceğiz ve daha sonra "Lock Tokens" butonuna tıklayarak token kilitleme işlemini yapabiliriz.</p>
+
+• <code><button onClick={approve}>Approve</button></code> 
+<p>"Approve" butonuna tıklandığında useAllowance() hookumuzda döndürdüğümüz approve fonksiyonunun çalışmasını söyledik. Bu Lock kontratına ödeme iznini verecektir. Bu bizim örneğimizde Haber Bülteni kontratına izin veren işlemdir.</p>
+
+• 
+
+```
+    <h2>allowance : {ethers.utils.formatEther(allowance)}</h2>
+    <h2>{approving ? "Approving" : "!"}</h2>
+```
+</br>
+<p><code>ethers.utils.formatEther(allowance)</code> ile "useAllowance()" hookumuzdan döndürdüğümüz allowance değerini ether türüne çevirerek ekrana yazdırıyoruz.</p>
