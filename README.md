@@ -547,3 +547,37 @@ export const useAllowance = () => {
 ```
 </br>
 
+•
+```
+ const [allowance,setAllowance] = useState()
+ const [approving,setIsApproving]= useState(false)
+```
+</br>
+<p>ilk olarak allowance ve approving state değişkenlerini oluşturuyoruz. allowance bize akıllı kontratta kullanıcının verdiği ödeme izninde kalan ödeme miktarını verecektir. Burada ödeme  "<b>BigNumber.from(0)</b>" </p>
+
+•
+```
+ useEffect(()=>{
+        getAllowance();
+    },[])
+```
+</br>
+<p>Burada ise app.js kontratından useAllowance hook'unu çağırır çağırmak getAllowance fonksiyonu BeeToken kontratına gidip allowance fonksiyonunu çalıştırarak bize değeri döndürecektir. Eğer approve yapmamışsak, allowance değerini girilmediği için default değer olarak 0 değerini döndürecektir.</p>
+
+•
+```
+const getAllowance = async()=>{
+        const provider = new ethers.providers.Web3Provider(window.ethereum)
+        const signer = provider.getSigner()
+        const tokenContract = new ethers.Contract(BeeTOKEN_ADDRESS,TOKEN_ABI,signer)
+       const result = await tokenContract.allowance(signer.getAddress(),LOCK_ADDRESS)
+        setAllowance(result)
+    }
+```
+</br>
+• <code>const provider = new ethers.providers.Web3Provider(window.ethereum)</code>
+<p> etherjs kütüphanesini kullanarak provider’ımızı “window.ethereum” olarak belirtiyoruz ve provider değişkenine atıyoruz.Metamask bize o an bağlı olduğu ağın rpc ni getirerek otomatik o api’nin getirdiği node’a yani providera bağlantı kuruyor.</p></br>
+
+• <code>const signer = provider.getSigner()</code>
+<p> Metamask’ımız da o an ki aktif olan imzalayıcı olan cüzdanı getirir. Blockchaine veri yazarken bu signer ile işlemler imzalanmaktadır.</p></br>
+
