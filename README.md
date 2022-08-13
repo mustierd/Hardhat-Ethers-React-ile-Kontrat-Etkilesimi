@@ -632,3 +632,11 @@ try {
 <p> Burada BeeToken kontratındaki <b>approve</b> fonksiyonunu çalıştırıyoruz. İlk parametre olarak, "transferFrom()" fonksiyonunu kullanarak tokenlarımızı transfer etme iznini vereceğimiz adresi giriyoruz. Bu Haber Bülteni örneğimizdeki Haber Bülteni'nin kontrat adresidir. İkinci parametre olarak ise Haber bülteni kontratına ödeme izninin miktarını giriyoruz. Burada örnek olsun diye akıllı kontratlar üzerinde en büyük sayı değerini <code>ethers.constants.MaxUint256</code> ile çekim limiti olarak belirledik</p>
 
 <p><b>Not:</b> Burada ödeme izni verdiğimiz kontrata maksimum değeri girmemiz ile bizim tüm bakiyemizi çekme iznine sahip olabiliyor. Eğer Haber bülteni kontratı hacklendiğinde, bir güvenlik açığı olduğunda veya kötü niyetli kullanım ile tüm tokenlarımızı transferForm() fonksiyonu ile transfer edebilir.Bu durum oldukça tehlikelidir!!! </p>
+
+• 
+```
+ 	await txn.wait();
+        setIsApproving(false);
+        getAllowance()
+```
+<p> Burada <code>await txn.wait()</code> ile approve işleminin bitmeden devam etmeyeceğini söylüyoruz. İşlem başarılı bir şekilde tamamlandıktan sonra <code>setIsApproving(false)</code> ile approving state'ini false durumuna geçmesini söylüyoruz ve <code>getAllowance()</code> ile allowance fonksiyonunu kontrattan tekrar okuyarak "allowance" state'ini güncelliyoruz.</p>
