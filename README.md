@@ -629,6 +629,6 @@ try {
 </br>
 
 • <code>const txn = await tokenContract.approve(LOCK_ADDRESS,)</code>
-<p> Burada BeeToken kontratındaki <b>approve</b> fonksiyonunu çalıştırıyoruz. İlk parametre olarak, "transferFrom()" fonksiyonunu kullanarak tokenlarımızı transfer etme iznini vereceğimiz adresi giriyoruz. Bu Haber Bülteni örneğimizdeki Haber Bülteni'nin kontrat adresidir. İkinci parametre olarak ise Haber bülteni kontratına ödeme izninin miktarını giriyoruz. Burada örnek olsun diye akıllı kontratlar üzerinde en büyük sayı değerini <code>ethers.constants.MaxUint256</code> çekim limitini belirledik</p></br>
+<p> Burada BeeToken kontratındaki <b>approve</b> fonksiyonunu çalıştırıyoruz. İlk parametre olarak, "transferFrom()" fonksiyonunu kullanarak tokenlarımızı transfer etme iznini vereceğimiz adresi giriyoruz. Bu Haber Bülteni örneğimizdeki Haber Bülteni'nin kontrat adresidir. İkinci parametre olarak ise Haber bülteni kontratına ödeme izninin miktarını giriyoruz. Burada örnek olsun diye akıllı kontratlar üzerinde en büyük sayı değerini <code>ethers.constants.MaxUint256</code> çekim limitini belirledik</p>
 
-<p><b>Not:</b> Burada ödeme izni verdiğimiz kontrata maksimum değeri girmemiz ile bizim tüm bakiyemizi çekme iznine sahip olabiliyor. Eğer Haber bülteni kontratı hacklendiği veya bir güvenlik açığı olduğunda veya kötü niyetli kullanım ile bitim tüm tokenlarımızı transferForm() fonksiyonu ile transfer edebilir. </p>
+<p><b>Not:</b> Burada ödeme izni verdiğimiz kontrata maksimum değeri girmemiz ile bizim tüm bakiyemizi çekme iznine sahip olabiliyor. Eğer Haber bülteni kontratı hacklendiği, bir güvenlik açığı olduğunda veya kötü niyetli kullanım ile bitim tüm tokenlarımızı transferForm() fonksiyonu ile transfer edebilir. </p>
