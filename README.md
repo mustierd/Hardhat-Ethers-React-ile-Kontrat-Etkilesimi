@@ -709,4 +709,4 @@ export default App;
   }
 ```
 </br>
-<p>lock() fonksiyonu ile <b>Lock</b> kontratı üzerindeki "<b>LockToken</b>" fonksiyonunu çalıştırıyoruz. Bu fonksiyon Lock kontratına token göndermemize yaramaktadır.Lock kontratını tekrar incelerseniz,  ilk parametre olarka gönderilecek token miktarını almaktadır. Bu miktarı input ekranında girilen değeri "parseEther" ile ether türüne çeviriyoruz.(Yani wei cinsinden sıfırlar ile uğraşmıyoruz.). 2. parametre olarak 5 değerini girmişiz. Bu ise LockToken fonksiyonunun en son çalıştırdığından 5 saniye içinde tekrar çalıştırılmayacağı anlamına gelmektedir.</p>
+<p>lock() fonksiyonu ile <b>Lock</b> kontratı üzerindeki "<b>LockToken</b>" fonksiyonunu çalıştırıyoruz. Bu fonksiyon Lock kontratına token göndermemize yaramaktadır.Lock kontratını tekrar incelerseniz,  ilk parametre olarka gönderilecek token miktarını almaktadır. Bu miktarı input ekranında girilen değeri "parseEther" ile ether türüne çeviriyoruz.(Yani wei cinsinden sıfırlar ile uğraşmıyoruz.). 2. parametre olarak 5 değerini girmişiz. Bu ise LockToken fonksiyonunun en son çalıştırıldığından 5 saniye içinde tekrar çalıştırılmayacağı anlamına gelmektedir.</p>
