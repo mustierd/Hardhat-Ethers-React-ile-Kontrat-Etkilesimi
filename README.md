@@ -494,5 +494,10 @@ export default App;
 <p> ikinci parametre olan "<b>_value</b>" ise haber bülteni kontratına verdiğimiz çekim limitine denir.</p>
 
 •<b>allowance()</b>
-<p><img src="https://user-images.githubusercontent.com/82549640/184494548-48377e84-4a1b-4065-a8d8-7c277ca47733.png"></p>
-<p>allowance, bir kontrata tokenlarınızı yönetmesi için izin verdiğinizde, kontratın çekebileceği ne kadar çekim limitinin kaldığını gösterir. Örneğin, haber bültenine 6 aylık abone olduk ve toplam 6 BeeToken çeklim limiti hakkı verdik. 4 ay zaman geçtkten sonra aylık 1 BeeToken olduğuna göre 4 ay sonucu 4 BeeToken bizim cüzdanımızdan Haber Bülteni kontratına transfer olmuş olur. Biz "allowance" fonksiyonunu çağırdığımızda bize kalan çekim limiti hakkı olan 2 BeeToken değerini döndürür.
+<p>allowance, bir kontrata tokenlarınızı yönetmesi için izin verdiğinizde, kontratın çekebileceği ne kadar çekim limitinin kaldığını gösterir. Örneğin, haber bültenine 6 aylık abone olduk ve toplam 6 BeeToken çeklim limiti hakkı verdik. 4 ay zaman geçtkten sonra aylık 1 BeeToken olduğuna göre 4 ay sonucu 4 BeeToken bizim cüzdanımızdan Haber Bülteni kontratına transfer olmuş olur. Biz "allowance" fonksiyonunu çağırdığımızda bize kalan çekim limiti hakkı olan 2 BeeToken değerini döndürür.</p>
+	<p><img src="https://user-images.githubusercontent.com/82549640/184504992-8fe39e68-7b74-47f0-a3ff-3f346c8f868f.png"></p>
+	<p><img src="https://user-images.githubusercontent.com/82549640/184504893-ffa32e98-11f7-4da1-8586-b67a01a9f4b9.png"></p>
+<p>Allowance fonksiyonu da 2 parametre almaktadır. Bunların ilki "<b>_owner</b>" adresidir. Bu adres, haber bülteni örneğimizdeki Token'ların sahibi yani bizim adresimizdir. 2.parametre ise "<b>_spender</b>" adresidir. Bu adres ise yine haber bülteni örneğimzden ilerlersek haber bülteninin kontrat adresidir.</p>
+<p>Kısacası bu fonksiyon hangi token sahibinin hangi adreslere ödeme hakkı(approve) verdiyse, o ödeme miktarından kalan değeri verir.</p>
+<p> Şimdi projemizin kodlarından ilerleyerek akıllı kontratlar üzerinde etkileşime geçerek approve ve allowance fonksiyonlarını çalıştıralım.</p>
+
