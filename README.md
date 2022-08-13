@@ -710,3 +710,13 @@ export default App;
 ```
 </br>
 <p>lock() fonksiyonu ile <b>Lock</b> kontratı üzerindeki "<b>LockToken</b>" fonksiyonunu çalıştırıyoruz. Bu fonksiyon Lock kontratına token göndermemize yaramaktadır.Lock kontratını tekrar incelerseniz,  ilk parametre olarka gönderilecek token miktarını almaktadır. Bu miktarı input ekranında girilen değeri "parseEther" ile ether türüne çeviriyoruz.(Yani wei cinsinden sıfırlar ile uğraşmıyoruz.). 2. parametre olarak 5 değerini girmişiz. Bu ise LockToken fonksiyonunun en son çalıştırıldığından 5 saniye içinde tekrar çalıştırılmayacağı anlamına gelmektedir. Bir nevi kilitli kalacağı zamanı(saniye cinsinden ) belirtmektedir.</p>
+
+• 
+
+```
+<input  onChange={(e)=> setValue( e.target.value)}/>
+<button onClick={lock}>Lock Tokens</button>
+```
+</br>
+<p>İlk satırda input dan aldığımız değeri <b>value</b> state'ine aktarıyoruz. Daha sonra Lock Tokens butonuna tıklandığında yukarıda oluşturduğumuz <b>lock()</b> fonksiyonu çalışarak kontrata token kilitleme işlemini gerçekleştiriyoruz.</p>
+<p><b>Not:</b> Burada Lock kontratını hiç approve etmediğimiz için lock fonksiyonu çalışmayacak ve Lock kontratına token kilitleyemeyeceğiz. Bunun için aşağıdaki approve butonuna tıklayarak ilk önce approve işlemi gerçekleşecektir ve daha sonra "Lock Tokens" butonuna tıklayarak token kilitleme işlemini yapabiliriz.</p>
