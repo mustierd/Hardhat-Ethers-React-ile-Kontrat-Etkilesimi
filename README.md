@@ -562,9 +562,8 @@ export const useAllowance = () => {
     },[])
 ```
 </br>
-<p>Burada ise app.js kontratından useAllowance hook'unu çağırır çağırmaz getAllowance fonksiyonu BeeToken kontratına gidip allowance fonksiyonunu çalıştırarak bize değeri döndürecektir. Eğer approve yapmamışsak, allowance değerini girilmediği için default değer olarak 0 değerini döndürecektir.</p>
+<p>Burada useEffect ile app.js kontratından useAllowance hook'unu çağırır çağırmaz getAllowance fonksiyonu BeeToken kontratına gidip allowance fonksiyonunu çalıştırarak bize değeri döndürecektir. Eğer approve yapmamışsak, allowance değerini girilmediği için default değer olarak 0 değerini döndürecektir.</p>
 
-•
 ```
 const getAllowance = async()=>{
         const provider = new ethers.providers.Web3Provider(window.ethereum)
